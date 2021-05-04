@@ -31,7 +31,6 @@ end
 
 group :development do
   gem 'pessimize', "~> 0.4.0"
-  gem 'web-console', '~> 4.1.0'
   gem 'rack-mini-profiler', '~> 2.3.2'
   gem 'listen', '~> 3.5.1'
   gem 'spring', "~> 2.1.1"
