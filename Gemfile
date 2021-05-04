@@ -14,7 +14,7 @@ gem 'bcrypt', '~> 3.1.16'
 gem 'friendly_id', "~> 5.4.2"
 
 gem 'sass-rails', '~> 6.0.0'
-gem 'webpacker'
+gem 'webpacker', "~> 5.3.0"
 gem 'turbolinks', '~> 5.2.1'
 gem 'jbuilder', '~> 2.11.2'
 gem "tailwindcss-rails", "~> 0.3.3"
@@ -22,7 +22,7 @@ gem "tailwindcss-rails", "~> 0.3.3"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'bootsnap', '~> 1.7.3', require: false
+gem 'bootsnap', '~> 1.7.4', require: false
 
 group :development, :test do
   gem 'pry-rails', "~> 0.3.9"
@@ -32,7 +32,7 @@ end
 group :development do
   gem 'pessimize', "~> 0.4.0"
   gem 'web-console', '~> 4.1.0'
-  gem 'rack-mini-profiler', '~> 2.3.1'
+  gem 'rack-mini-profiler', '~> 2.3.2'
   gem 'listen', '~> 3.5.1'
   gem 'spring', "~> 2.1.1"
 end
