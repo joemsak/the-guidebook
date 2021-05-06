@@ -2,8 +2,146 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer base {
+  form,
+  input:not([type=submit]),
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    @apply mb-4;
+  }
+
+  a:not(.btn) {
+    @apply text-blue-400;
+    @apply hover:text-blue-900;
+    @apply transition-colors;
+    @apply duration-300;
+    @apply cursor-pointer;
+  }
+
+  button,
+  input[type=submit] {
+    @apply btn;
+  }
+
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  label {
+    @apply block;
+    @apply w-auto;
+    @apply cursor-pointer;
+    @apply mb-2;
+  }
+
+  input {
+    &[type=text],
+    &[type=email],
+    &[type=password] {
+      @apply block;
+      @apply rounded-sm;
+      @apply border-indigo-700;
+      @apply border;
+      @apply py-2;
+      @apply px-4;
+      @apply text-xl;
+    }
+  }
+
+  table {
+    @apply w-full;
+  }
+
+  tbody {
+    tr {
+      td {
+        @apply transition;
+        @apply duration-300;
+      }
+
+      &:first-child {
+        td {
+          &:first-child {
+            @apply rounded-tl-md;
+          }
+
+          &:last-child {
+            @apply rounded-tr-md;
+          }
+        }
+      }
+
+      &:last-child {
+        td {
+          &:first-child {
+            @apply rounded-bl-md;
+          }
+
+          &:last-child {
+            @apply rounded-br-md;
+          }
+        }
+      }
+
+      &:nth-child(odd) {
+        td {
+          @apply bg-indigo-50;
+        }
+      }
+
+      &:hover {
+        td {
+          @apply bg-indigo-100;
+        }
+      }
+    }
+  }
+
+  th,
+  td {
+    @apply py-2;
+    @apply px-4;
+    @apply text-left;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block;
+    @apply rounded-sm;
+    @apply shadow-sm;
+    @apply bg-blue-400;
+
+    @apply py-1;
+    @apply px-4;
+
+    @apply text-sm;
+    @apply text-white #{!important};
+    @apply font-bold;
+
+    @apply cursor-pointer;
+
+    @apply hover:bg-blue-900;
+
+    @apply active:translate-x-1;
+    @apply active:translate-y-1;
+
+    @apply transform;
+    @apply transition-colors;
+    @apply duration-300;
+  }
+}
+
 #notice {
-  @apply rounded-md;
+  @apply rounded-sm;
   @apply bg-green-400;
   @apply text-white;
   @apply py-4;
@@ -19,142 +157,5 @@
   @apply text-white;
   @apply shadow-md;
   @apply p-4;
-  @apply rounded-md;
+  @apply rounded-sm;
 }
-
-.btn {
-  @apply inline-block;
-  @apply rounded-md;
-  @apply shadow-md;
-  @apply bg-blue-400;
-
-  @apply py-2;
-  @apply px-4;
-
-  @apply text-white;
-  @apply font-bold;
-
-  @apply cursor-pointer;
-
-  @apply hover:bg-blue-900;
-
-  @apply active:translate-x-1;
-  @apply active:translate-y-1;
-
-  @apply transform;
-  @apply transition-colors;
-  @apply duration-300;
-}
-
-/* purgecss start ignore */
-
-form,
-input:not([type=submit]),
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
-  @apply mb-4;
-}
-
-button,
-input[type=submit] {
-  @apply btn;
-}
-
-h1 {
-  @apply text-2xl;
-}
-
-h2 {
-  @apply text-xl;
-}
-
-a {
-  @apply text-blue-400;
-  @apply hover:text-blue-900;
-  @apply transition;
-  @apply duration-300;
-  @apply cursor-pointer;
-}
-
-label {
-  @apply block;
-  @apply w-auto;
-  @apply cursor-pointer;
-  @apply mb-2;
-}
-
-input {
-  &[type=text],
-  &[type=email],
-  &[type=password] {
-    @apply block;
-    @apply rounded-md;
-    @apply border-indigo-700;
-    @apply border-2;
-    @apply py-2;
-    @apply px-4;
-    @apply text-xl;
-  }
-}
-
-table {
-  @apply w-full;
-}
-
-tbody {
-  tr {
-    td {
-      @apply transition;
-      @apply duration-300;
-    }
-
-    &:first-child {
-      td {
-        &:first-child {
-          @apply rounded-tl-md;
-        }
-
-        &:last-child {
-          @apply rounded-tr-md;
-        }
-      }
-    }
-
-    &:last-child {
-      td {
-        &:first-child {
-          @apply rounded-bl-md;
-        }
-
-        &:last-child {
-          @apply rounded-br-md;
-        }
-      }
-    }
-
-    &:nth-child(odd) {
-      td {
-        @apply bg-indigo-50;
-      }
-    }
-
-    &:hover {
-      td {
-        @apply bg-indigo-100;
-      }
-    }
-  }
-}
-
-th,
-td {
-  @apply py-2;
-  @apply px-4;
-  @apply text-left;
-}
-
-/* purgecss end ignore */
