@@ -1,0 +1,29 @@
+<h1 class="mb-0"><%= t('.title') %></h1>
+<p>
+  <%= t('common.or') %>
+  <%= link_to t('actions.signup'), coach_signup_path %>
+</p>
+
+<%= form_with(url: sessions_path) do |form| %>
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email, autocomplete: :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password, autocomplete: 'current-password' %>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :remember_me %>
+    <%= form.label :remember_me, class: "inline" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t("actions.signin").capitalize %>
+    <%= t('common.or') %>
+    <%= link_to t('actions.cancel'), root_path %>
+  </div>
+<% end %>
+

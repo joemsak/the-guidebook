@@ -1,4 +1,6 @@
 en:
   actions:
     cancel: cancel
+    logout: log out
+    signin: sign in
     signup: signup

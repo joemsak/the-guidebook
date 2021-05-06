@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 2021_05_06_033236) do
     t.string "slug", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
+    t.string "auth_token", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["auth_token"], name: "index_coaches_on_auth_token", unique: true
     t.index ["email"], name: "index_coaches_on_email", unique: true
     t.index ["slug"], name: "index_coaches_on_slug", unique: true
   end

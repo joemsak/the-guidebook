@@ -1,2 +1,10 @@
-<h1><%= t(".title") %></h1>
-<%= render 'coaches/form', coach: @coach %>
+<h1 class="mb-0"><%= t(".title") %></h1>
+
+<p>
+  <%= t('common.or') %>
+  <%= link_to t('actions.signin'), signin_path %>
+</p>
+
+<%= render 'coaches/form',
+  coach: @coach,
+  submit: t('actions.signup').capitalize %>
