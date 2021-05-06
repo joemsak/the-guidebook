@@ -3,15 +3,25 @@
 @import "tailwindcss/utilities";
 
 @layer base {
-  form,
-  input:not([type=submit]),
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  p {
-    @apply mb-4;
+  main {
+    form,
+    input:not([type=submit]),
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+      @apply mb-4;
+    }
+
+    h1 {
+      @apply text-2xl;
+    }
+
+    h2 {
+      @apply text-xl;
+    }
   }
 
   a:not(.btn) {
@@ -25,14 +35,6 @@
   button,
   input[type=submit] {
     @apply btn;
-  }
-
-  h1 {
-    @apply text-2xl;
-  }
-
-  h2 {
-    @apply text-xl;
   }
 
   label {
