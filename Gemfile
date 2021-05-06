@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
 
-gem 'rails', '~> 6.1.3.1', '>= 6.1.3.1'
+gem 'rails', '~> 6.1.3.2', '>= 6.1.3.1'
 gem 'pg', '~> 1.2.3'
 gem 'puma', '~> 5.2.2'
 gem 'sidekiq', "~> 6.2.1"
@@ -22,7 +22,7 @@ gem "tailwindcss-rails", "~> 0.3.3"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'bootsnap', '~> 1.7.4', require: false
+gem 'bootsnap', '~> 1.7.5', require: false
 
 group :development, :test do
   gem 'pry-rails', "~> 0.3.9"

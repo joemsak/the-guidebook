@@ -6,7 +6,7 @@ x-app: &app
   environment: &env
     NODE_ENV: development
     PGPASSWORD: password
-  image: theguidebook:0.0.a
+  image: theguidebook:0.0.b
   tmpfs:
     - /tmp
 
