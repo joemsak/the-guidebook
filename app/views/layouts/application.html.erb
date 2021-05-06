@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="h-full">
   <head>
-    <title>Theguidebook</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Relationship Guidebook</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1"
+    >
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'application',
+      media: 'all',
+      'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_pack_tag 'application',
+      'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_pack_tag "application",
+      "data-turbo-track": "reload" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="p-4 bg-gray-50 text-gray-700 h-full">
+    <main class="h-full">
+      <%= yield %>
+    </main>
   </body>
 </html>

@@ -1,7 +1,10 @@
 <%= form_with(model: coach) do |form| %>
   <% if coach.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(coach.errors.count, "error") %> prohibited this coach from being saved:</h2>
+      <h2>
+        <%= pluralize(coach.errors.count, "error") %>
+        prohibited this coach from being saved:
+      </h2>
 
       <ul>
         <% coach.errors.each do |error| %>
@@ -13,18 +16,25 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, autocomplete: :name %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.email_field :email, autocomplete: :email %>
   </div>
 
-  <div class="field">
-    <%= form.label :encrypted_password %>
-    <%= form.text_field :encrypted_password %>
-  </div>
+  <% if coach.new_record? %>
+    <div class="field">
+      <%= form.label :password %>
+      <%= form.password_field :password, autocomplete: 'new-password' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, autocomplete: :off %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/notices' %>
 
 <p>
   <strong>Name:</strong>
@@ -8,11 +8,6 @@
 <p>
   <strong>Email:</strong>
   <%= @coach.email %>
-</p>
-
-<p>
-  <strong>Encrypted password:</strong>
-  <%= @coach.encrypted_password %>
 </p>
 
 <%= link_to 'Edit', edit_coach_path(@coach) %> |
