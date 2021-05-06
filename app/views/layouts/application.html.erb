@@ -25,11 +25,12 @@
   <body class="bg-gray-50 text-gray-700 h-full">
     <header class="flex justify-between py-2 px-4 shadow-md bg-white">
       <h1 class="flex flex-col justify-center font-bold">
-        <%= t("site.title") %>
+        <%= link_to t("site.title"), root_path %>
       </h1>
 
       <nav class="text-right">
         <% if current_coach %>
+          <%= current_coach.name %>
           <%= link_to t("actions.logout").capitalize, logout_path %>
         <% else %>
           <%= link_to t("actions.signin").capitalize, signin_path %>

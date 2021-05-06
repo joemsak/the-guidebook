@@ -1,6 +1,9 @@
-<% submit ||= nil %>
+<%
+  submit ||= nil
+  url ||= coach
+%>
 
-<%= form_with(model: coach) do |form| %>
+<%= form_with(model: coach, url: url) do |form| %>
   <% if coach.errors.any? %>
     <div id="error_explanation">
       <h2>

@@ -1,0 +1,5 @@
+en:
+  coach:
+    registrations:
+      create:
+        success: Thank you for signing up!
