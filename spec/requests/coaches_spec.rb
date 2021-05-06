@@ -17,11 +17,11 @@ RSpec.describe "/coaches", type: :request do
   # Coach. As you add validations to Coach, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for(:coach)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    attributes_for(:coach, email: 'invalid')
   }
 
   describe "GET /index" do
@@ -78,7 +78,8 @@ RSpec.describe "/coaches", type: :request do
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         post coaches_url, params: { coach: invalid_attributes }
-        expect(response).to be_successful
+        expect(response.status).to eq(422)
+        expect(response).to render_template('coaches/new')
       end
     end
   end
@@ -86,14 +87,17 @@ RSpec.describe "/coaches", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { email: "changed@email.com" }
       }
 
       it "updates the requested coach" do
         coach = Coach.create! valid_attributes
-        patch coach_url(coach), params: { coach: new_attributes }
-        coach.reload
-        skip("Add assertions for updated state")
+
+        expect {
+          patch coach_url(coach), params: { coach: new_attributes }
+        }.to change {
+          coach.reload.email
+        }.to("changed@email.com")
       end
 
       it "redirects to the coach" do
@@ -108,7 +112,8 @@ RSpec.describe "/coaches", type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         coach = Coach.create! valid_attributes
         patch coach_url(coach), params: { coach: invalid_attributes }
-        expect(response).to be_successful
+        expect(response.status).to eq(422)
+        expect(response).to render_template('coaches/edit')
       end
     end
   end
