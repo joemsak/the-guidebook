@@ -2,5 +2,6 @@ en:
   actions:
     cancel: cancel
     logout: log out
+    manage_thing: manage %{thing}
     signin: sign in
     signup: signup

@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_one :coach_profile, dependent: :destroy
   has_one :client_profile, dependent: :destroy
 
+  default_scope -> { order(:created_at) }
+
   def should_generate_new_friendly_id?
     name_changed?
   end

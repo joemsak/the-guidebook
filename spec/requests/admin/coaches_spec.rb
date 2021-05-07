@@ -41,12 +41,12 @@ RSpec.describe "/admin/coaches", type: :request do
     context "with valid parameters" do
       it "creates a new Coach" do
         expect {
-          post admin_coaches_url, params: { coach: valid_attributes }
+          post admin_coaches_url, params: { user: valid_attributes }
         }.to change(User, :count).by(1).and change(CoachProfile, :count).by(1)
       end
 
       it "redirects to the created coach" do
-        post admin_coaches_url, params: { coach: valid_attributes }
+        post admin_coaches_url, params: { user: valid_attributes }
         expect(response).to redirect_to(admin_coach_url(User.last))
       end
     end
@@ -54,12 +54,12 @@ RSpec.describe "/admin/coaches", type: :request do
     context "with invalid parameters" do
       it "does not create a new Coach" do
         expect {
-          post admin_coaches_url, params: { coach: invalid_attributes }
+          post admin_coaches_url, params: { user: invalid_attributes }
         }.to change(User, :count).by(0).and change(CoachProfile, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        post admin_coaches_url, params: { coach: invalid_attributes }
+        post admin_coaches_url, params: { user: invalid_attributes }
         expect(response.status).to eq(422)
         expect(response).to render_template('admin/coaches/new')
       end
@@ -74,14 +74,14 @@ RSpec.describe "/admin/coaches", type: :request do
 
       it "updates the requested coach" do
         expect {
-          patch admin_coach_url(coach), params: { coach: new_attributes }
+          patch admin_coach_url(coach), params: { user: new_attributes }
         }.to change {
           coach.reload.email
         }.to("changed@email.com")
       end
 
       it "redirects to the coach" do
-        patch admin_coach_url(coach), params: { coach: new_attributes }
+        patch admin_coach_url(coach), params: { user: new_attributes }
         coach.reload
         expect(response).to redirect_to(admin_coach_url(coach))
       end
@@ -89,7 +89,7 @@ RSpec.describe "/admin/coaches", type: :request do
 
     context "with invalid parameters" do
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        patch admin_coach_url(coach), params: { coach: invalid_attributes }
+        patch admin_coach_url(coach), params: { user: invalid_attributes }
         expect(response.status).to eq(422)
         expect(response).to render_template('admin/coaches/edit')
       end

@@ -11,7 +11,7 @@ class Admin::CoachesController < AdminController
   end
 
   def create
-    @coach = User.new(coach_params)
+    @coach = User.new(user_params)
 
     respond_to do |format|
       if @coach.save
@@ -38,7 +38,7 @@ class Admin::CoachesController < AdminController
 
   def update
     respond_to do |format|
-      if @coach.update(coach_params)
+      if @coach.update(user_params)
         format.html {
           redirect_to admin_coach_path(@coach), notice: t('.success')
         }
@@ -75,8 +75,8 @@ class Admin::CoachesController < AdminController
     @coach = User.friendly.find(params[:id])
   end
 
-  def coach_params
-    params.require(:coach)
+  def user_params
+    params.require(:user)
       .permit(:name, :email, :password, :password_confirmation)
   end
 end

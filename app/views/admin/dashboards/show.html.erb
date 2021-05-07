@@ -1,0 +1,8 @@
+<h1><%= t('.title') %></h1>
+
+<p>
+  <%= link_to(
+    t('actions.manage_thing', thing: t('common.coach').pluralize).capitalize,
+    admin_coaches_path
+  ) %>
+</p>
