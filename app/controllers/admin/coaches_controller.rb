@@ -1,5 +1,4 @@
 class Admin::CoachesController < AdminController
-  before_action :authenticated_admin!
   before_action :set_coach, only: %i[ show edit update destroy ]
 
   def index

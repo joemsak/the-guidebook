@@ -5,3 +5,4 @@ en:
     manage_thing: manage %{thing}
     signin: sign in
     signup: signup
+    switch_to: switch to %{thing}

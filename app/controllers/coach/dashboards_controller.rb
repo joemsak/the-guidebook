@@ -1,4 +1,2 @@
-class Coach::DashboardsController < ApplicationController
-  def show
-  end
+class Coach::DashboardsController < CoachController
 end

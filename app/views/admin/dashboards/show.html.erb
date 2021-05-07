@@ -6,3 +6,13 @@
     admin_coaches_path
   ) %>
 </p>
+
+<p>
+  <%= link_to(
+    t(
+      'actions.switch_to',
+      thing: "#{t('common.coach')} #{t('common.dashboard')}"
+    ).capitalize,
+    coach_dashboard_path
+  ) %>
+</p>
