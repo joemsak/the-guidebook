@@ -1,4 +1,4 @@
-class Coach < ApplicationRecord
+class User < ApplicationRecord
   extend FriendlyId
 
   friendly_id :name, use: [:slugged, :history]
@@ -11,6 +11,10 @@ class Coach < ApplicationRecord
 
   has_secure_password
   has_secure_token :auth_token, length: 32
+
+  has_one :admin_profile, dependent: :destroy
+  has_one :coach_profile, dependent: :destroy
+  has_one :client_profile, dependent: :destroy
 
   def should_generate_new_friendly_id?
     name_changed?

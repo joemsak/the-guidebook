@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
   def create
-    if coach = authenticate_coach
-      sign_in(coach)
-      redirect_to coach, notice: t('.success')
+    if resource = authenticate_resource
+      sign_in(resource)
+      redirect_to [resource, :dashboard], notice: t('.success')
     else
       flash.now[:alert] = t('.failure')
       render :new
@@ -10,14 +10,14 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    sign_out(current_coach)
+    sign_out(current_user)
     redirect_to root_path, notice: t('.success')
   end
 
   private
-  def authenticate_coach
-    if coach = Coach.find_by(email: session_params[:email])
-      coach.authenticate(session_params[:password])
+  def authenticate_resource
+    if resource = User.find_by(email: session_params[:email])
+      resource.authenticate(session_params[:password])
     end
   end
 

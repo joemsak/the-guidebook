@@ -1,21 +1,24 @@
-class CoachesController < ApplicationController
+class Admin::CoachesController < AdminController
+  before_action :authenticated_admin!
   before_action :set_coach, only: %i[ show edit update destroy ]
 
   def index
-    @coaches = Coach.all
+    @coaches = User.joins(:coach_profile).all
   end
 
   def new
-    @coach = Coach.new
+    @coach = User.new
   end
 
   def create
-    @coach = Coach.new(coach_params)
+    @coach = User.new(coach_params)
 
     respond_to do |format|
       if @coach.save
+        @coach.create_coach_profile!
+
         format.html {
-          redirect_to @coach, notice: "Coach was successfully created."
+          redirect_to admin_coach_path(@coach), notice: t('.success')
         }
 
         format.json {
@@ -37,7 +40,7 @@ class CoachesController < ApplicationController
     respond_to do |format|
       if @coach.update(coach_params)
         format.html {
-          redirect_to @coach, notice: "Coach was successfully updated."
+          redirect_to admin_coach_path(@coach), notice: t('.success')
         }
 
         format.json {
@@ -59,7 +62,7 @@ class CoachesController < ApplicationController
     @coach.destroy
     respond_to do |format|
       format.html {
-        redirect_to coaches_url,
+        redirect_to admin_coaches_url,
           notice: "Coach was successfully destroyed."
       }
 
@@ -69,7 +72,7 @@ class CoachesController < ApplicationController
 
   private
   def set_coach
-    @coach = Coach.friendly.find(params[:id])
+    @coach = User.friendly.find(params[:id])
   end
 
   def coach_params

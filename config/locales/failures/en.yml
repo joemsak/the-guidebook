@@ -1,0 +1,4 @@
+en:
+  failures:
+    unauthenticated: Please sign in first
+    unauthorized: You are not allowed to go there

@@ -1,14 +1,15 @@
 class Coach::RegistrationsController < ApplicationController
   def new
-    @coach = Coach.new
+    @coach = User.new
   end
 
   def create
-    @coach = Coach.new(coach_params)
+    @coach = User.new(coach_params)
 
     if @coach.save
+      @coach.create_coach_profile!
       sign_in(@coach)
-      redirect_to @coach, notice: t('.success')
+      redirect_to coach_dashboard_path, notice: t('.success')
     else
       render :new
     end
@@ -16,7 +17,7 @@ class Coach::RegistrationsController < ApplicationController
 
   private
   def coach_params
-    params.require(:coach)
+    params.require(:user)
       .permit(:name, :email, :password, :password_confirmation)
   end
 end

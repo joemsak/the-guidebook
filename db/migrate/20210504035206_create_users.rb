@@ -1,6 +1,6 @@
-class CreateCoaches < ActiveRecord::Migration[6.1]
+class CreateUsers < ActiveRecord::Migration[6.1]
   def change
-    create_table :coaches, id: :uuid do |t|
+    create_table :users, id: :uuid do |t|
       t.string :name, null: false
       t.string :slug, null: false
       t.string :email, null: false
@@ -9,8 +9,8 @@ class CreateCoaches < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :coaches, :email, unique: true
-    add_index :coaches, :slug, unique: true
-    add_index :coaches, :auth_token, unique: true
+    add_index :users, :email, unique: true
+    add_index :users, :slug, unique: true
+    add_index :users, :auth_token, unique: true
   end
 end

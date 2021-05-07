@@ -14,11 +14,11 @@
       <tr>
         <td><%= coach.name %></td>
         <td><%= coach.email %></td>
-        <td><%= link_to 'Show', coach %></td>
-        <td><%= link_to 'Edit', edit_coach_path(coach) %></td>
+        <td><%= link_to 'Show', admin_coach_path(coach) %></td>
+        <td><%= link_to 'Edit', edit_admin_coach_path(coach) %></td>
         <td>
           <%= link_to 'Destroy',
-            coach,
+            admin_coach_path(coach),
             method: :delete,
             data: { confirm: 'Are you sure?' }
           %>
@@ -30,6 +30,4 @@
 
 <br>
 
-<%= link_to 'New Coach',
-  new_coach_path,
-  class: "btn" %>
+<%= link_to 'New Coach', new_admin_coach_path, class: "btn" %>

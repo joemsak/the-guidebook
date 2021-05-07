@@ -1,11 +1,29 @@
 class ApplicationController < ActionController::Base
   AUTH_TOKEN = :auth_token
 
-  helper_method :current_coach
+  helper_method :current_admin, :current_coach, :current_client
 
   private
+  def current_admin
+    current_user&.admin_profile
+  end
+
   def current_coach
-    @current_coach ||= Coach.find_by(auth_token: cookies.signed[AUTH_TOKEN])
+    current_user&.coach_profile
+  end
+
+  def current_client
+    current_user&.client_profile
+  end
+
+  def current_user
+    @current_user ||= User.find_by(auth_token: cookies.signed[AUTH_TOKEN])
+  end
+
+  def authenticate_user!
+    unless current_user
+      redirect_to signin_path, alert: t('failures.unauthenticated')
+    end
   end
 
   def sign_in(resource)

@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe Coach, type: :model do
+RSpec.describe User, type: :model do
   describe "#email" do
     it "must be unique" do
-      coach1 = create(:coach)
-      coach2 = create(:coach)
+      user1 = create(:user)
+      user2 = create(:user)
 
-      coach2.email = coach1.email
+      user2.email = user1.email
 
-      expect(coach2).not_to be_valid
+      expect(user2).not_to be_valid
     end
   end
 end
