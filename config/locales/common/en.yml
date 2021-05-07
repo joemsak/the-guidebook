@@ -1,5 +1,6 @@
 en:
   common:
-    coach: coach
     dashboard: dashboard
+    error: error
     or: or
+    new_thing: new %{thing}

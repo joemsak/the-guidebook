@@ -1,11 +1,15 @@
-<h1 class="mb-0"><%= t(".title") %></h1>
+<div class="w-2/5 mx-auto mt-4 p-4 shadow-md bg-white">
+  <h1 class="mb-0 text-center"><%= t(".title") %></h1>
 
-<p>
-  <%= t('common.or') %>
-  <%= link_to t('actions.signin'), signin_path %>
-</p>
+  <p class="text-center">
+    <%= t('common.or') %>
+    <%= link_to t('actions.signin'), signin_path %>
+  </p>
 
-<%= render 'admin/coaches/form',
-  coach: @coach,
-  url: coach_registrations_path,
-  submit: t('actions.signup').capitalize %>
+  <%= render 'admin/coaches/form',
+    coach: @coach,
+    url: coach_registrations_path,
+    cancel_path: root_path,
+    css_classes: 'w-full',
+    submit: t('actions.signup').capitalize %>
+</div>

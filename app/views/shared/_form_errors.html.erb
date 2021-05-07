@@ -1,0 +1,19 @@
+<% model ||= resource.class.name.underscore %>
+
+<% if resource.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= t(
+        'forms.error_explanation',
+        num_errors: pluralize(resource.errors.count, t("common.error")),
+        thing: t("activerecord.models.#{model}")
+      ) %>
+    </h2>
+
+    <ul>
+      <% resource.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

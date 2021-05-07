@@ -2,7 +2,7 @@
 
 <p>
   <%= link_to(
-    t('actions.manage_thing', thing: t('common.coach').pluralize).capitalize,
+    t('actions.manage_thing', thing: t('activerecord.models.coach').pluralize).capitalize,
     admin_coaches_path
   ) %>
 </p>
@@ -11,7 +11,7 @@
   <%= link_to(
     t(
       'actions.switch_to',
-      thing: "#{t('common.coach')} #{t('common.dashboard')}"
+      thing: "#{t('activerecord.models.coach')} #{t('common.dashboard')}"
     ).capitalize,
     coach_dashboard_path
   ) %>

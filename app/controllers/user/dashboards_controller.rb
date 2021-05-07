@@ -1,6 +1,8 @@
 class User::DashboardsController < ApplicationController
   before_action :redirect_to_profile
 
+  def show; end
+
   private
   def redirect_to_profile
     if current_admin

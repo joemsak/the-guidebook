@@ -1,12 +1,10 @@
-<p>
-  <strong>Name:</strong>
-  <%= @coach.name %>
-</p>
+<dl>
+  <dt><%= t('activerecord.models.user.name') %>:</dt>
+  <dd><%= @coach.name %></dd>
 
-<p>
-  <strong>Email:</strong>
-  <%= @coach.email %>
-</p>
+  <dt><%= t('activerecord.models.user.email') %>:</dt>
+  <dd><%= @coach.email %></dd>
+</dl>
 
-<%= link_to 'Edit', edit_admin_coach_path(@coach) %> |
-<%= link_to 'Back', admin_coaches_path %>
+<%= link_to t('actions.edit').capitalize, edit_admin_coach_path(@coach) %> |
+<%= link_to t('actions.back').capitalize, admin_coaches_path %>

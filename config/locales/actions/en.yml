@@ -1,8 +1,14 @@
 en:
   actions:
+    back: back
     cancel: cancel
+    create_thing: create %{thing}
+    edit: edit
+    delete: delete
     logout: log out
     manage_thing: manage %{thing}
+    show: show
     signin: sign in
     signup: signup
     switch_to: switch to %{thing}
+    update_thing: update %{thing}

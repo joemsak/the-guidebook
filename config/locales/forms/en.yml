@@ -1,0 +1,3 @@
+en:
+  forms:
+    error_explanation: "%{num_errors} prohibited this %{thing} from being saved:"

@@ -1,23 +1,12 @@
 <%
   submit ||= nil
   url ||= admin_coaches_path
+  cancel_path ||= admin_coaches_path
+  css_classes ||= ''
 %>
 
-<%= form_with(model: coach, url: url) do |form| %>
-  <% if coach.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(coach.errors.count, "error") %>
-        prohibited this coach from being saved:
-      </h2>
-
-      <ul>
-        <% coach.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: coach, url: url, class: css_classes) do |form| %>
+  <%= render 'shared/form_errors', resource: coach, model: :coach %>
 
   <div class="field">
     <%= form.label :name %>
@@ -44,6 +33,6 @@
   <div class="actions">
     <%= form.submit submit %>
     <%= t('common.or') %>
-    <%= link_to t('actions.cancel'), admin_coaches_path %>
+    <%= link_to t('actions.cancel'), cancel_path %>
   </div>
 <% end %>

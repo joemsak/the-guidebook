@@ -51,6 +51,7 @@
     @apply w-auto;
     @apply cursor-pointer;
     @apply mb-2;
+    @apply capitalize;
   }
 
   input {
@@ -116,11 +117,26 @@
     }
   }
 
+  th {
+    @apply capitalize;
+  }
+
   th,
   td {
     @apply py-2;
     @apply px-4;
     @apply text-left;
+  }
+
+  dl {
+    dt {
+      @apply font-bold;
+    }
+
+    dd {
+      @apply block;
+      @apply mb-4;
+    }
   }
 }
 
@@ -137,6 +153,7 @@
     @apply text-sm;
     @apply text-white #{!important};
     @apply font-bold;
+    @apply capitalize;
 
     @apply cursor-pointer;
 
@@ -177,4 +194,12 @@
   @apply shadow-md;
   @apply p-4;
   @apply rounded-sm;
+}
+
+form.w-full {
+  input[type=text],
+  input[type=email],
+  input[type=password] {
+    width: 100%;
+  }
 }

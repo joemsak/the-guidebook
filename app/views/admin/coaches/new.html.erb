@@ -1,3 +1,6 @@
-<h1>New Coach</h1>
+<h1><%= t('.title') %></h1>
 
-<%= render 'form', coach: @coach %>
+<%= render 'form',
+  coach: @coach,
+  submit: t('actions.create_thing', thing: t('activerecord.models.coach')).titleize
+%>

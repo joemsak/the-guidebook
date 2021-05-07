@@ -1,0 +1,7 @@
+en:
+  admin:
+    coaches:
+      edit:
+        title: Edit a coach
+      new:
+        title: Create a new coach
