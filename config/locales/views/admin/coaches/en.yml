@@ -3,5 +3,7 @@ en:
     coaches:
       edit:
         title: Edit a coach
+      index:
+        title: Manage coaches
       new:
         title: Create a new coach
