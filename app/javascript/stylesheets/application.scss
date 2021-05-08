@@ -2,141 +2,139 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@layer base {
-  nav {
-    a {
-      @apply inline-block;
-      @apply py-2;
-      @apply px-4;
-      @apply font-bold;
-    }
-  }
-
-  main {
-    form,
-    input:not([type=submit]),
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    p {
-      @apply mb-4;
-    }
-
-    h1 {
-      @apply text-2xl;
-    }
-
-    h2 {
-      @apply text-xl;
-    }
-  }
-
-  a:not(.btn) {
-    @apply text-blue-400;
-    @apply hover:text-blue-900;
-    @apply transition-colors;
-    @apply duration-300;
-    @apply cursor-pointer;
-  }
-
-  button,
-  input[type=submit] {
-    @apply btn;
-  }
-
-  label {
-    @apply block;
-    @apply w-auto;
-    @apply cursor-pointer;
-    @apply mb-2;
-    @apply capitalize;
-  }
-
-  input {
-    &[type=text],
-    &[type=email],
-    &[type=password] {
-      @apply block;
-      @apply rounded-sm;
-      @apply border-indigo-700;
-      @apply border;
-      @apply py-2;
-      @apply px-4;
-      @apply text-xl;
-    }
-  }
-
-  table {
-    @apply w-full;
-  }
-
-  tbody {
-    tr {
-      td {
-        @apply transition;
-        @apply duration-300;
-      }
-
-      &:first-child {
-        td {
-          &:first-child {
-            @apply rounded-tl-md;
-          }
-
-          &:last-child {
-            @apply rounded-tr-md;
-          }
-        }
-      }
-
-      &:last-child {
-        td {
-          &:first-child {
-            @apply rounded-bl-md;
-          }
-
-          &:last-child {
-            @apply rounded-br-md;
-          }
-        }
-      }
-
-      &:nth-child(odd) {
-        td {
-          @apply bg-indigo-50;
-        }
-      }
-
-      &:hover {
-        td {
-          @apply bg-indigo-100;
-        }
-      }
-    }
-  }
-
-  th {
-    @apply capitalize;
-  }
-
-  th,
-  td {
+nav {
+  a {
+    @apply inline-block;
     @apply py-2;
     @apply px-4;
-    @apply text-left;
+    @apply font-bold;
+  }
+}
+
+main {
+  form,
+  input:not([type=submit]),
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    @apply mb-4;
   }
 
-  dl {
-    dt {
-      @apply font-bold;
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+}
+
+a:not(.btn) {
+  @apply text-blue-400;
+  @apply hover:text-blue-900;
+  @apply transition-colors;
+  @apply duration-300;
+  @apply cursor-pointer;
+}
+
+button,
+input[type=submit] {
+  @apply btn;
+}
+
+label {
+  @apply block;
+  @apply w-auto;
+  @apply cursor-pointer;
+  @apply mb-2;
+  @apply capitalize;
+}
+
+input {
+  &[type=text],
+  &[type=email],
+  &[type=password] {
+    @apply block;
+    @apply rounded-sm;
+    @apply border-indigo-700;
+    @apply border;
+    @apply py-2;
+    @apply px-4;
+    @apply text-xl;
+  }
+}
+
+table {
+  @apply w-full;
+}
+
+tbody {
+  tr {
+    td {
+      @apply transition;
+      @apply duration-300;
     }
 
-    dd {
-      @apply block;
-      @apply mb-4;
+    &:first-child {
+      td {
+        &:first-child {
+          @apply rounded-tl-md;
+        }
+
+        &:last-child {
+          @apply rounded-tr-md;
+        }
+      }
     }
+
+    &:last-child {
+      td {
+        &:first-child {
+          @apply rounded-bl-md;
+        }
+
+        &:last-child {
+          @apply rounded-br-md;
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      td {
+        @apply bg-indigo-50;
+      }
+    }
+
+    &:hover {
+      td {
+        @apply bg-indigo-100;
+      }
+    }
+  }
+}
+
+th {
+  @apply capitalize;
+}
+
+th,
+td {
+  @apply py-2;
+  @apply px-4;
+  @apply text-left;
+}
+
+dl {
+  dt {
+    @apply font-bold;
+  }
+
+  dd {
+    @apply block;
+    @apply mb-4;
   }
 }
 
