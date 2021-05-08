@@ -1,14 +1,23 @@
 en:
   activerecord:
-    models:
-      admin: admin
-      admin_profile: admin profile
-      client: client
-      client_profile: client profile
-      coach: coach
-      coach_profile: coach profile
-      user: user
     attributes:
       user:
         email: email
         name: name
+
+    errors:
+      models:
+        client_invitation:
+          attributes:
+            email:
+              cannot_match_sender: cannot be your own email
+
+    models:
+      admin: admin
+      admin_profile: admin profile
+      client: client
+      client_invitation: client invitation
+      client_profile: client profile
+      coach: coach
+      coach_profile: coach profile
+      user: user

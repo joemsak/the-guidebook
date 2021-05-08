@@ -1,0 +1,6 @@
+en:
+  client_invitation_mailer:
+    invitation:
+      greeting: Hello there, %{name}!
+      subject: Invitation to The Relationship Guidebook
+      title: The first step of your journey begins here

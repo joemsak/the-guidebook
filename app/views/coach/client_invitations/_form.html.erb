@@ -1,0 +1,21 @@
+<% submit ||= t('actions.invite_thing', thing: t('activerecord.models.client')) %>
+
+<%= form_with(model: client_invitation, url: [:coach, client_invitation]) do |form| %>
+  <%= render 'shared/form_errors', resource: client_invitation %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, autocomplete: :off %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email, autocomplete: :off %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit submit %>
+    <%= t('common.or') %>
+    <%= link_to t('actions.cancel'), :back %>
+  </div>
+<% end %>

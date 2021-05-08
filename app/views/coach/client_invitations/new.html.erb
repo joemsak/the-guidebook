@@ -1,0 +1,6 @@
+<h1><%= t('.title') %></h1>
+
+<%= render 'form',
+  client_invitation: @client_invitation,
+  submit: t('actions.create_thing', thing: t('activerecord.models.client_invitation')).titleize
+%>

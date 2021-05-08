@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_010542) do
+ActiveRecord::Schema.define(version: 2021_05_08_011006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,26 @@ ActiveRecord::Schema.define(version: 2021_05_07_010542) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_admin_profiles_on_user_id", unique: true
+  end
+
+  create_table "client_invitations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "slug", null: false
+    t.integer "status", default: 0, null: false
+    t.json "failure", default: {}
+    t.uuid "sender_id", null: false
+    t.string "sender_type", null: false
+    t.uuid "recipient_id", comment: "Recipient is attached when a client profile is created upon acceptance"
+    t.string "recipient_type", comment: "Recipient is attached when a client profile is created upon acceptance"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_client_invitations_on_email"
+    t.index ["recipient_id", "recipient_type"], name: "index_client_invitations_on_recipient_id_and_recipient_type"
+    t.index ["sender_id", "sender_type", "email"], name: "index_client_invitations_on_sender_id_and_sender_type_and_email"
+    t.index ["sender_id", "sender_type"], name: "index_client_invitations_on_sender_id_and_sender_type"
+    t.index ["slug"], name: "index_client_invitations_on_slug"
+    t.index ["status"], name: "index_client_invitations_on_status"
   end
 
   create_table "client_profiles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

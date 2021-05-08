@@ -1,0 +1,11 @@
+en:
+  coach:
+    client_invitations:
+      edit:
+        title: Edit client invitation
+      index:
+        title: Client invitations
+      new:
+        title: Invite a new client
+      show:
+        title: Client invitation

@@ -6,6 +6,7 @@ en:
     edit: edit
     delete: delete
     logout: log out
+    invite_thing: invite %{thing}
     manage_thing: manage %{thing}
     show: show
     signin: sign in

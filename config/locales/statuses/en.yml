@@ -1,0 +1,8 @@
+en:
+  statuses:
+    accepted: accepted
+    created: created
+    failed: failed
+    opened: opened
+    rejected: rejected
+    sent: sent

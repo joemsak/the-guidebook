@@ -1,34 +1,34 @@
 <h1><%= t('.title') %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t('activerecord.attributes.user.name') %></th>
-      <th><%= t('activerecord.attributes.user.email') %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @coaches.each do |coach| %>
+<% if @coaches.any? %>
+  <table>
+    <thead>
       <tr>
-        <td><%= coach.name %></td>
-        <td><%= coach.email %></td>
-        <td><%= link_to t('actions.show'), admin_coach_path(coach) %></td>
-        <td><%= link_to t('actions.edit'), edit_admin_coach_path(coach) %></td>
-        <td>
-          <%= link_to t('actions.delete'),
-            admin_coach_path(coach),
-            method: :delete,
-            data: { confirm: t('confirmations.are_you_sure') }
-          %>
-        </td>
+        <th><%= t('activerecord.attributes.user.name') %></th>
+        <th><%= t('activerecord.attributes.user.email') %></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @coaches.each do |coach| %>
+        <tr>
+          <td><%= coach.name %></td>
+          <td><%= coach.email %></td>
+          <td><%= link_to t('actions.show'), admin_coach_path(coach) %></td>
+          <td><%= link_to t('actions.edit'), edit_admin_coach_path(coach) %></td>
+          <td>
+            <%= link_to t('actions.delete'),
+              admin_coach_path(coach),
+              method: :delete,
+              data: { confirm: t('confirmations.are_you_sure') }
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <%= link_to t('common.new_thing', thing: t('activerecord.models.coach')),
   new_admin_coach_path,

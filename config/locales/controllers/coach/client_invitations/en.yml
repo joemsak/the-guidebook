@@ -1,0 +1,9 @@
+en:
+  coach:
+    client_invitations:
+      create:
+        success: Success! Have your client check their inbox for the invitation.
+      destroy:
+        success: That invitation has been deleted.
+      update:
+        success: The invitation was updated and, if the email was changed, re-sent.
