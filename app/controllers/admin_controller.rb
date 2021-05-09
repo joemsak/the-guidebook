@@ -4,7 +4,7 @@ class AdminController < ApplicationController
   private
   def authenticate_admin!
     if current_user && !current_admin
-      redirect_to root_path, alert: t('failures.unauthorized')
+      redirect_to root_path, alert: t('alerts.unauthorized')
     else
       authenticate_user!
     end

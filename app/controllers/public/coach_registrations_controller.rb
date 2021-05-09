@@ -1,4 +1,4 @@
-class Coach::RegistrationsController < ApplicationController
+class Public::CoachRegistrationsController < PublicController
   def new
     @coach = User.new
   end

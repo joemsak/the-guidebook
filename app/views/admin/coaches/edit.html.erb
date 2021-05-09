@@ -2,6 +2,7 @@
 
 <%= render 'form',
   coach: @coach,
+  url: admin_coach_path(@coach),
   submit: t('actions.update_thing', thing: t('activerecord.models.coach'))
 %>
 

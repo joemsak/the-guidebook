@@ -2,5 +2,6 @@ en:
   common:
     dashboard: dashboard
     error: error
+    on_behalf_of: on behalf of
     or: or
     new_thing: new %{thing}

@@ -1,0 +1,9 @@
+en:
+  public:
+    sessions:
+      create:
+        failure: Sorry, we can't sign you in with that information
+        success: Welcome back!
+
+      destroy:
+        success: See you next time!

@@ -1,0 +1,10 @@
+en:
+  admin:
+    coaches:
+      create:
+        success: Success! Welcome your new coach, %{name}
+      destroy:
+        success: You deleted %{name}
+      update:
+        success: You updated %{name}
+

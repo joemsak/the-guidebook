@@ -4,7 +4,7 @@ class CoachController < ApplicationController
   private
   def authenticate_coach!
     if current_user && !current_coach
-      redirect_to root_path, alert: t('failures.unauthorized')
+      redirect_to root_path, alert: t('alerts.unauthorized')
     else
       authenticate_user!
     end

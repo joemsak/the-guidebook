@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
-      redirect_to signin_path, alert: t('failures.unauthenticated')
+      redirect_to signin_path, alert: t('alerts.unauthenticated')
     end
   end
 
@@ -36,5 +36,11 @@ class ApplicationController < ActionController::Base
 
   def sign_out(resource)
     cookies.signed[AUTH_TOKEN] = nil
+  end
+
+  def require_no_authentication
+    if current_user
+      redirect_to root_path, notice: t('notices.already_signed_in')
+    end
   end
 end

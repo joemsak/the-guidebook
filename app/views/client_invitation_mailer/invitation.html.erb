@@ -2,3 +2,12 @@
 
 <p><%= t('.greeting', name: @client_invitation.name) %></p>
 
+<p><%= t('.body', sender_name: @sender.name) %></p>
+
+<p><%= t('.link_preface') %> <%= link_to t('.link'), @url %>.</p>
+
+<p>
+  <%= t('.closing') %>
+  <br />
+  <%= t('site.title') %>
+</p>

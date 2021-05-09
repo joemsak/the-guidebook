@@ -1,4 +1,6 @@
-class SessionsController < ApplicationController
+class Public::SessionsController < PublicController
+  skip_before_action :require_no_authentication, only: :destroy
+
   def create
     if resource = authenticate_resource
       sign_in(resource)

@@ -2,6 +2,9 @@ class ClientInvitation < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  include FailsWithException
+  fails_with_exception :status, resolved_when: :sent
+
   belongs_to :sender, polymorphic: true
   belongs_to :recipient, polymorphic: true, required: false
 
@@ -9,7 +12,6 @@ class ClientInvitation < ApplicationRecord
     created
     sent
     failed
-    opened
     accepted
     rejected
   ]

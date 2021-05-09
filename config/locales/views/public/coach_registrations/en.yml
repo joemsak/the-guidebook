@@ -1,5 +1,5 @@
 en:
-  coach:
-    registrations:
+  public:
+    coach_registrations:
       new:
         title: Create your coach account

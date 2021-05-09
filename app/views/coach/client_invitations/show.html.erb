@@ -9,6 +9,14 @@
 
   <dt><%= t('activesupport.attributes.client_invitation.status') %></dt>
   <dd><%= t("statuses.#{@client_invitation.status}") %></dd>
+
+  <% if @client_invitation.failed? %>
+    <dt><%= t('activesupport.attributes.client_invitation.failure_message') %></dt>
+    <dd><%= @client_invitation.failure_message %></dd>
+
+    <dt><%= t('activesupport.attributes.client_invitation.failure_trace') %></dt>
+    <dd><%= @client_invitation.failure_trace(scope: :app, limit: 1) %></dd>
+  <% end %>
 </dl>
 
 <p>

@@ -6,13 +6,12 @@ RSpec.describe ClientInvitationMailer, type: :mailer do
     let(:mail) { ClientInvitationMailer.invitation(invitation.id) }
 
     it "renders the headers" do
-      expect(mail.subject).to eq("Invitation to The Relationship Guidebook")
       expect(mail.to).to eq([invitation.email])
       expect(mail.from).to eq([invitation.sender_email])
     end
 
-    it "renders the body" do
-      expect(mail.body.encoded).to match("Hello there, #{invitation.name}!")
+    it "renders the link with an unfriendly ID" do
+      expect(mail.body.encoded).to match(accept_public_client_invitation_url(invitation.id))
     end
   end
 

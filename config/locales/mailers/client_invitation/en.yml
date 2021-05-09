@@ -1,6 +1,14 @@
 en:
   client_invitation_mailer:
     invitation:
-      greeting: Hello there, %{name}!
-      subject: Invitation to The Relationship Guidebook
-      title: The first step of your journey begins here
+      body: >-
+        %{sender_name} has invited you to use The Relationship Guidebook
+        as a travel companion on your journey together.
+
+      closing: All courage and fulfillment,
+      greeting: Dear %{name},
+      link: accept your invitation
+      link_preface: We hope that you will
+      link_preface_text_version: Please use this URL to accept your invitation
+      subject: Invitation to use The Relationship Guidebook
+      title: You already took the first step. Now keep going.

@@ -17,7 +17,7 @@ class Admin::CoachesController < AdminController
         @coach.create_coach_profile!
 
         format.html {
-          redirect_to admin_coach_path(@coach), notice: t('.success')
+          redirect_to admin_coach_path(@coach), notice: t('.success', name: @coach.name)
         }
 
         format.json {
@@ -39,7 +39,7 @@ class Admin::CoachesController < AdminController
     respond_to do |format|
       if @coach.update(user_params)
         format.html {
-          redirect_to admin_coach_path(@coach), notice: t('.success')
+          redirect_to admin_coach_path(@coach), notice: t('.success', name: @coach.name)
         }
 
         format.json {
@@ -61,8 +61,7 @@ class Admin::CoachesController < AdminController
     @coach.destroy
     respond_to do |format|
       format.html {
-        redirect_to admin_coaches_url,
-          notice: "Coach was successfully destroyed."
+        redirect_to admin_coaches_url, notice: t('.success', name: @coach.name)
       }
 
       format.json { head :no_content }
