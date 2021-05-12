@@ -1,5 +1,6 @@
 en:
   common:
+    admin: admin
     dashboard: dashboard
     error: error
     on_behalf_of: on behalf of

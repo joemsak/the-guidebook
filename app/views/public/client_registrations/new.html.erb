@@ -7,9 +7,9 @@
   </p>
 
   <%= render 'admin/users/form',
-    resource: @coach,
-    model_name: :coach,
-    url: public_coach_registrations_path,
+    resource: @client,
+    model_name: :client,
+    url: public_client_registrations_path,
     cancel_path: root_path,
     css_classes: 'w-full',
     submit: t('actions.signup').capitalize %>

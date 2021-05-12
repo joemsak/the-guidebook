@@ -1,9 +1,9 @@
 <h1><%= t('.title') %></h1>
 
-<%= render 'form',
-  coach: @coach,
+<%= render 'admin/users/form',
+  resource: @coach,
+  model_name: :coach,
   url: admin_coach_path(@coach),
+  cancel_path: admin_coach_path(@coach),
   submit: t('actions.update_thing', thing: t('activerecord.models.coach'))
 %>
-
-<%= link_to t('actions.show').capitalize, admin_coach_path(@coach) %>

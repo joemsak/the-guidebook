@@ -9,4 +9,8 @@ class CoachController < ApplicationController
       authenticate_user!
     end
   end
+
+  def root_path_helper
+    coach_dashboard_path
+  end
 end

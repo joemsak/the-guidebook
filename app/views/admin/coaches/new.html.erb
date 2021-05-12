@@ -1,6 +1,9 @@
 <h1><%= t('.title') %></h1>
 
-<%= render 'form',
-  coach: @coach,
+<%= render 'admin/users/form',
+  resource: @coach,
+  model_name: :coach,
+  url: admin_coaches_path,
+  cancel_path: admin_coaches_path,
   submit: t('actions.create_thing', thing: t('activerecord.models.coach')).titleize
 %>

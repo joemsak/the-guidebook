@@ -1,12 +1,13 @@
 <%
   submit ||= nil
-  url ||= admin_coaches_path
-  cancel_path ||= admin_coaches_path
+  url ||= admin_users_path
+  cancel_path ||= admin_users_path
   css_classes ||= ''
+  model_name ||= :user
 %>
 
-<%= form_with(model: coach, url: url, class: css_classes) do |form| %>
-  <%= render 'shared/form_errors', resource: coach, model: :coach %>
+<%= form_with(model: resource, url: url, class: css_classes) do |form| %>
+  <%= render 'shared/form_errors', resource: resource, model_name: model_name %>
 
   <div class="field">
     <%= form.label :name %>
@@ -18,7 +19,7 @@
     <%= form.email_field :email, autocomplete: :email %>
   </div>
 
-  <% if coach.new_record? %>
+  <% if resource.new_record? %>
     <div class="field">
       <%= form.label :password %>
       <%= form.password_field :password, autocomplete: 'new-password' %>

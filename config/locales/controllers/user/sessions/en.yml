@@ -1,0 +1,5 @@
+en:
+  user:
+    sessions:
+      destroy:
+        success: See you next time!

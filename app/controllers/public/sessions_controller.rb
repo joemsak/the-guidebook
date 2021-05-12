@@ -1,6 +1,4 @@
 class Public::SessionsController < PublicController
-  skip_before_action :require_no_authentication, only: :destroy
-
   def create
     if resource = authenticate_resource
       sign_in(resource)
@@ -9,11 +7,6 @@ class Public::SessionsController < PublicController
       flash.now[:alert] = t('.failure')
       render :new
     end
-  end
-
-  def destroy
-    sign_out(current_user)
-    redirect_to root_path, notice: t('.success')
   end
 
   private

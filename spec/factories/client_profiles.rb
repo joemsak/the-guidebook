@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :client_profile do
-    user { nil }
+    user
   end
 end

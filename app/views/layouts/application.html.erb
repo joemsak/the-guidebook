@@ -25,12 +25,19 @@
   <body class="bg-gray-50 text-gray-700 h-full">
     <header class="flex justify-between py-2 px-4 shadow-md bg-white">
       <h1 class="flex flex-col justify-center font-bold">
-        <%= link_to t("site.title"), root_path %>
+        <%= link_to t("site.title"), root_path_helper %>
       </h1>
 
       <nav class="text-right">
-        <% if current_coach %>
-          <%= current_coach.name %>
+        <% if current_user %>
+          <span><%= current_user.name %></span>
+
+          <% if current_admin && !navigating_admin? %>
+            <%= link_to t("activerecord.models.admin").capitalize, admin_dashboard_path %>
+          <% elsif current_coach && !navigating_coach? %>
+            <%= link_to t("activerecord.models.coach").capitalize, coach_dashboard_path %>
+          <% end %>
+
           <%= link_to t("actions.logout").capitalize, logout_path %>
         <% else %>
           <%= link_to t("actions.signin").capitalize, signin_path %>

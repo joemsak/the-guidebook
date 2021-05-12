@@ -1,4 +1,4 @@
 en:
-  failures:
+  alerts:
     unauthenticated: Please sign in first
     unauthorized: You are not allowed to go there

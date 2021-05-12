@@ -4,10 +4,14 @@
 
 nav {
   a {
+    @apply font-bold;
+  }
+
+  a,
+  span {
     @apply inline-block;
     @apply py-2;
     @apply px-4;
-    @apply font-bold;
   }
 }
 
@@ -41,9 +45,10 @@ a:not(.btn) {
   @apply cursor-pointer;
 }
 
+.btn,
 button,
 input[type=submit] {
-  @apply btn;
+  @apply btn-style;
 }
 
 label {
@@ -140,7 +145,7 @@ dl {
 }
 
 @layer components {
-  .btn {
+  .btn-style {
     @apply inline-block;
     @apply rounded-sm;
     @apply shadow-sm;
@@ -150,7 +155,7 @@ dl {
     @apply px-4;
 
     @apply text-sm;
-    @apply text-white #{!important};
+    @apply text-white;
     @apply font-bold;
     @apply capitalize;
 

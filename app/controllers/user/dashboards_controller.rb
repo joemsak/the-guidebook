@@ -1,4 +1,4 @@
-class User::DashboardsController < ApplicationController
+class User::DashboardsController < UserController
   before_action :redirect_to_profile
 
   def show; end
@@ -12,7 +12,7 @@ class User::DashboardsController < ApplicationController
     elsif current_client
       redirect_to [:client, :dashboard]
     else
-      redirect_to signin_path
+      redirect_to root_path
     end
   end
 end

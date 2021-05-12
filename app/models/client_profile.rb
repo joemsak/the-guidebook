@@ -1,5 +1,5 @@
 class ClientProfile < ApplicationRecord
   belongs_to :user
 
-  has_many :client_invitations, as: :recipient
+  has_many :invitations, as: :recipient, class_name: "ClientInvitation"
 end

@@ -4,14 +4,16 @@ class Public::CoachRegistrationsController < PublicController
   end
 
   def create
-    @coach = User.new(coach_params)
+    ActiveRecord::Base.transaction do
+      @coach = User.new(coach_params)
 
-    if @coach.save
-      @coach.create_coach_profile!
-      sign_in(@coach)
-      redirect_to coach_dashboard_path, notice: t('.success')
-    else
-      render :new
+      if @coach.save
+        @coach.create_coach_profile!
+        sign_in(@coach)
+        redirect_to coach_dashboard_path, notice: t('.success')
+      else
+        render :new
+      end
     end
   end
 

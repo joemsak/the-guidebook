@@ -1,0 +1,5 @@
+en:
+  public:
+    client_registrations:
+      new:
+        title: Create your client account

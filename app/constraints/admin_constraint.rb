@@ -13,6 +13,6 @@ class AdminConstraint
   end
 
   def auth_token(req)
-    req.cookie_jar.signed[ApplicationController::AUTH_TOKEN]
+    req.cookie_jar.signed[ApplicationController::AUTH_TOKEN_KEY]
   end
 end

@@ -9,4 +9,8 @@ class AdminController < ApplicationController
       authenticate_user!
     end
   end
+
+  def root_path
+    admin_dashboard_path
+  end
 end
