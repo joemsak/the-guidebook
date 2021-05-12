@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
 
   def require_no_authentication
     if current_user
-      redirect_to root_path, notice: t('notices.already_signed_in')
+      redirect_to user_dashboard_controller, notice: t('notices.already_signed_in')
     end
   end
 end
