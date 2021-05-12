@@ -1,7 +1,7 @@
 class Public::ClientRegistrationsController < PublicController
   def new
     @client = User.new
-    attach_possible_client_invitation_from_session(@client)
+    attach_possible_client_invitation(@client)
   end
 
   def create
@@ -10,7 +10,8 @@ class Public::ClientRegistrationsController < PublicController
 
       if @client.save
         @client.create_client_profile!
-        attach_possible_client_invitation_from_session(@client)
+        attach_possible_client_invitation(@client)
+        session.delete(CLIENT_INVITATION_KEY)
         sign_in(@client)
         redirect_to client_dashboard_path, notice: t('.success')
       else
@@ -25,7 +26,7 @@ class Public::ClientRegistrationsController < PublicController
       .permit(:name, :email, :password, :password_confirmation)
   end
 
-  def attach_possible_client_invitation_from_session(client)
+  def attach_possible_client_invitation(client)
     if client_invitation = load_client_invitation(client)
       client.name = client_invitation.name
       client.email = client_invitation.email
