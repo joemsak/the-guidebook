@@ -155,6 +155,8 @@ dl {
   }
 
   .btn-style {
+    @apply appearance-none;
+
     @apply inline-block;
     @apply rounded-sm;
     @apply shadow-sm;
