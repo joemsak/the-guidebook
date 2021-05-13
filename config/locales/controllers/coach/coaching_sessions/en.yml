@@ -3,5 +3,7 @@ en:
     coaching_sessions:
       create:
         success: Done! Have a great session!
+      destroy:
+        success: We removed the session for %{name}
       update:
         success: We updated your coaching session

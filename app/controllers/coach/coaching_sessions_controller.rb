@@ -39,6 +39,13 @@ class Coach::CoachingSessionsController < CoachController
     end
   end
 
+  def destroy
+    @coaching_session = current_coach.coaching_sessions.find(params[:id])
+    @coaching_session.destroy
+    redirect_to [:coach, :coaching_sessions],
+      notice: t('.success', name: @coaching_session.client_name)
+  end
+
   private
   def coaching_session_params
     params.require(:coaching_session)
