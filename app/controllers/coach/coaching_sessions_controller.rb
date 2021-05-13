@@ -1,13 +1,10 @@
 class Coach::CoachingSessionsController < CoachController
-  DEFAULT_DURATION = 1
-
   def index
     @coaching_sessions = current_coach.coaching_sessions
   end
 
   def new
-    @coaching_session = current_coach.coaching_sessions
-      .build(duration: DEFAULT_DURATION)
+    @coaching_session = current_coach.coaching_sessions.build
   end
 
   def create
@@ -27,6 +24,11 @@ class Coach::CoachingSessionsController < CoachController
 
   def edit
     @coaching_session = current_coach.coaching_sessions.find(params[:id])
+
+    @coaching_session.duration_complex = view_context.pluralize(
+      @coaching_session.duration,
+      @coaching_session.duration_unit.singularize
+    )
   end
 
   def update

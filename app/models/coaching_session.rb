@@ -1,4 +1,6 @@
 class CoachingSession < ApplicationRecord
+  attr_accessor :duration_complex
+
   default_scope { order(starts_at: :desc) }
 
   belongs_to :client_profile

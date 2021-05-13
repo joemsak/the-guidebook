@@ -19,17 +19,21 @@
   </div>
 
   <div class="field">
-    <%= form.label :duration %>
-    <%= form.select :duration_complex, [
-        ["1 hour",  "1 hour"],
-        ["2 hours", "2 hours"],
-        ["3 hours", "3 hours"],
-        ["15 minutes", "15 minutes"],
-        ["30 minutes", "30 minutes"],
-        ["45 minutes", "45 minutes"],
-        ["75 minutes", "75 minutes"],
-        ["90 minutes", "90 minutes"]
-      ] %>
+    <%= form.label :duration_complex,
+      t("activerecord.attributes.coaching_session.duration") %>
+
+    <%= form.select :duration_complex, options_for_select([
+        "1 hour",
+        "2 hours",
+        "3 hours",
+        "15 minutes",
+        "30 minutes",
+        "45 minutes",
+        "75 minutes",
+        "90 minutes",
+      ],
+      coaching_session.duration_complex
+    ) %>
   </div>
 
   <div class="actions">

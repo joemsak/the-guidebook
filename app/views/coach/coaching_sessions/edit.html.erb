@@ -1,3 +1,6 @@
 <h1><%= t('.title') %></h1>
 
-<%= render 'form', coaching_session: @coaching_session %>
+<%= render 'form',
+  coaching_session: @coaching_session,
+  submit: t('actions.update_thing', thing: t('activerecord.models.coaching_session'))
+%>
