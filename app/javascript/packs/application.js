@@ -15,7 +15,7 @@ ActiveStorage.start()
 import "stylesheets/application"
 
 (() => {
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('turbolinks:load', () => {
     document.querySelectorAll('[data-opens]').forEach(btn => {
       btn.addEventListener('click', () => {
         const menuId = btn.dataset.opens
