@@ -9,7 +9,7 @@ nav {
 
   a,
   span {
-    @apply inline-block;
+    @apply block;
     @apply py-2;
     @apply px-4;
   }
@@ -46,7 +46,7 @@ a:not(.btn) {
 }
 
 .btn,
-button,
+button:not(.ignore-btn-style),
 input[type=submit] {
   @apply btn-style;
 }

@@ -13,3 +13,33 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "stylesheets/application"
+
+(() => {
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-opens]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const menuId = btn.dataset.opens
+        const menu = document.getElementById(menuId)
+
+        btn.setAttribute('aria-expanded', true)
+        menu.querySelector('[data-closes]').setAttribute('aria-expanded', true)
+
+        menu.classList.remove('hidden')
+        menu.classList.add('block')
+      })
+    })
+
+    document.querySelectorAll('[data-closes]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const menuId = btn.dataset.closes
+        const menu = document.getElementById(menuId)
+
+        btn.setAttribute('aria-expanded', false)
+        document.getElementById(`${menuId}-btn`).setAttribute('aria-expanded', false)
+
+        menu.classList.add('hidden')
+        menu.classList.remove('block')
+      })
+    })
+  })
+})()

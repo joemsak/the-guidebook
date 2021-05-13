@@ -28,7 +28,58 @@
         <%= link_to t("site.title"), root_path_helper %>
       </h1>
 
-      <nav class="text-right">
+      <button
+        id="main-dropdown-btn"
+        data-opens="main-dropdown"
+        class="ignore-btn-style md:hidden"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <span class="block h-1 w-6 bg-blue-400 mb-1"></span>
+        <span class="block h-1 w-6 bg-blue-400 mb-1"></span>
+        <span class="block h-1 w-6 bg-blue-400"></span>
+      </button>
+
+      <nav
+        id="main-dropdown"
+        role="navigation"
+        aria-label="main"
+        aria-labelledby="main-dropdown-btn"
+        class="
+          hidden
+          fixed
+          inset-0
+          h-screen
+          w-screen
+          z-50
+          bg-white
+          text-center
+          md:flex
+          md:h-auto
+          md:w-auto
+          md:relative
+          md:block
+          md:text-right
+        "
+      >
+        <button
+          data-closes="main-dropdown"
+          class="
+            ignore-btn-style
+            absolute
+            top-0
+            right-3
+            text-blue-400
+            font-bold
+            text-5xl
+            md:hidden
+          "
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          &times;
+        </button>
+
         <% if current_user %>
           <span><%= current_user.name %></span>
 
