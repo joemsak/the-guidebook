@@ -33,6 +33,7 @@ class Public::ClientRegistrationsController < PublicController
 
       if client.persisted?
         client.client_profile.invitations << client_invitation
+        client_invitation.completed!
       end
     end
   end

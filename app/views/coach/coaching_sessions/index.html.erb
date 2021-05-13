@@ -1,0 +1,45 @@
+<h1><%= t('.title') %></h1>
+
+<% if @coaching_sessions.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t('activerecord.attributes.client_invitation.client_name') %></th>
+        <th><%= t('activerecord.attributes.coaching_sessions.starts_at') %></th>
+        <th><%= t('activerecord.attributes.client_invitation.duration') %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @coaching_sessions.each do |coaching_session| %>
+        <tr>
+          <td><%= coaching_session.client_name %></td>
+
+          <td><%= coaching_session.starts_at %></td>
+
+          <td>
+            <%= pluralize(
+              coaching_session.duration,
+              coaching_session.duration_unit.singularize
+            ) %>
+          </td>
+
+          <td><%= link_to t('actions.show'), [:coach, coaching_session] %></td>
+          <td><%= link_to t('actions.edit'), [:edit, :coach, coaching_session] %></td>
+          <td>
+            <%= link_to t('actions.delete'),
+              [:coach, coaching_session],
+              method: :delete,
+              data: { confirm: t('confirmations.are_you_sure') }
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= link_to t('common.new_thing', thing: t('activerecord.models.coaching_session')),
+  [:new, :coach, :coaching_session],
+  class: "btn" %>

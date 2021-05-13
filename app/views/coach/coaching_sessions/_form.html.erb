@@ -1,0 +1,40 @@
+<% submit ||= t('actions.create_thing', thing: t('activerecord.models.coaching_session')) %>
+
+<%= form_with(model: coaching_session, url: [:coach, coaching_session]) do |form| %>
+  <%= render 'shared/form_errors', resource: coaching_session %>
+
+  <div class="field">
+    <%= form.label :client_profile_id, t('activerecord.models.client') %>
+    <%= form.collection_select :client_profile_id,
+      current_coach.clients,
+      :id,
+      :name,
+      prompt: true
+    %>
+  </div>
+
+  <div class="field">
+    <%= form.label :starts_at %>
+    <%= form.datetime_field :starts_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duration %>
+    <%= form.select :duration_complex, [
+        ["1 hour",  "1 hour"],
+        ["2 hours", "2 hours"],
+        ["3 hours", "3 hours"],
+        ["15 minutes", "15 minutes"],
+        ["30 minutes", "30 minutes"],
+        ["45 minutes", "45 minutes"],
+        ["75 minutes", "75 minutes"],
+        ["90 minutes", "90 minutes"]
+      ] %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit submit %>
+    <%= t('common.or') %>
+    <%= link_to t('actions.cancel'), :back %>
+  </div>
+<% end %>

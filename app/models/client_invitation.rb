@@ -14,6 +14,7 @@ class ClientInvitation < ApplicationRecord
     failed
     accepted
     rejected
+    completed
   ]
 
   validates :name, :email, presence: true

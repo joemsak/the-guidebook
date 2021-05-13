@@ -1,6 +1,11 @@
 en:
   activerecord:
     attributes:
+      coaching_session:
+        client_name: client name
+        starts_at: starts at
+        duration: duration
+
       user:
         email: email
         name: name
@@ -19,5 +24,6 @@ en:
       client_invitation: client invitation
       client_profile: client profile
       coach: coach
+      coaching_session: coaching session
       coach_profile: coach profile
       user: user

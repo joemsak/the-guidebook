@@ -1,20 +1,20 @@
 <h1><%= t('.title') %></h1>
 
 <dl>
-  <dt><%= t('activesupport.attributes.client_invitation.name') %></dt>
+  <dt><%= t('activerecord.attributes.client_invitation.name') %></dt>
   <dd><%= @client_invitation.name %></dd>
 
-  <dt><%= t('activesupport.attributes.client_invitation.email') %></dt>
+  <dt><%= t('activerecord.attributes.client_invitation.email') %></dt>
   <dd><%= @client_invitation.email %></dd>
 
-  <dt><%= t('activesupport.attributes.client_invitation.status') %></dt>
+  <dt><%= t('activerecord.attributes.client_invitation.status') %></dt>
   <dd><%= t("statuses.#{@client_invitation.status}") %></dd>
 
   <% if @client_invitation.failed? %>
-    <dt><%= t('activesupport.attributes.client_invitation.failure_message') %></dt>
+    <dt><%= t('activerecord.attributes.client_invitation.failure_message') %></dt>
     <dd><%= @client_invitation.failure_message %></dd>
 
-    <dt><%= t('activesupport.attributes.client_invitation.failure_trace') %></dt>
+    <dt><%= t('activerecord.attributes.client_invitation.failure_trace') %></dt>
     <dd><%= @client_invitation.failure_trace(scope: :app, limit: 1) %></dd>
   <% end %>
 </dl>

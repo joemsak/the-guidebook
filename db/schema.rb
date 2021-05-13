@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_011006) do
+ActiveRecord::Schema.define(version: 2021_05_12_224921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,20 @@ ActiveRecord::Schema.define(version: 2021_05_08_011006) do
     t.index ["user_id"], name: "index_coach_profiles_on_user_id", unique: true
   end
 
+  create_table "coaching_sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "client_profile_id", null: false
+    t.uuid "coach_profile_id", null: false
+    t.datetime "starts_at", null: false
+    t.integer "duration", default: 1, null: false
+    t.integer "duration_unit", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_profile_id"], name: "index_coaching_sessions_on_client_profile_id"
+    t.index ["coach_profile_id", "client_profile_id"], name: "coaching_sessions_coach_client"
+    t.index ["coach_profile_id"], name: "index_coaching_sessions_on_coach_profile_id"
+    t.index ["starts_at"], name: "index_coaching_sessions_on_starts_at"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.uuid "sluggable_id", null: false
@@ -83,4 +97,6 @@ ActiveRecord::Schema.define(version: 2021_05_08_011006) do
   add_foreign_key "admin_profiles", "users"
   add_foreign_key "client_profiles", "users"
   add_foreign_key "coach_profiles", "users"
+  add_foreign_key "coaching_sessions", "client_profiles"
+  add_foreign_key "coaching_sessions", "coach_profiles"
 end

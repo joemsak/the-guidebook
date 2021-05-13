@@ -1,0 +1,11 @@
+en:
+  coach:
+    coaching_sessions:
+      edit:
+        title: Edit a coaching session
+      index:
+        title: Coaching sessions
+      new:
+        title: Create a coaching session
+      show:
+        title: Coaching session

@@ -1,6 +1,7 @@
 en:
   statuses:
     accepted: accepted
+    completed: completed
     created: created
     failed: failed
     rejected: rejected

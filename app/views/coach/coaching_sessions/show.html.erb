@@ -1,0 +1,22 @@
+<h1><%= t('.title') %></h1>
+
+<dl>
+  <dt><%= t('activerecord.attributes.coaching_session.client_name') %></dt>
+  <dd><%= @coaching_session.client_name %></dd>
+
+  <dt><%= t('activerecord.attributes.coaching_session.starts_at') %></dt>
+  <dd><%= @coaching_session.starts_at %></dd>
+
+  <dt><%= t('activerecord.attributes.coaching_session.duration') %></dt>
+  <dd>
+    <%= pluralize(
+      @coaching_session.duration,
+      @coaching_session.duration_unit.singularize,
+    ) %>
+  </dd>
+</dl>
+
+<p>
+  <%= link_to t("actions.edit").capitalize, [:edit, :coach, @coaching_session] %> |
+  <%= link_to t("actions.back").capitalize, [:coach, :coaching_sessions] %>
+</p>

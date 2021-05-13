@@ -1,0 +1,7 @@
+en:
+  coach:
+    coaching_sessions:
+      create:
+        success: Done! Have a great session!
+      update:
+        success: We updated your coaching session

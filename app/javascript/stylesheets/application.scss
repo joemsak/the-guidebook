@@ -17,7 +17,7 @@ nav {
 
 main {
   form,
-  input:not([type=submit]),
+  .field,
   table,
   h1,
   h2,
@@ -61,16 +61,15 @@ label {
 
 input {
   &[type=text],
+  &[type=datetime-local],
   &[type=email],
   &[type=password] {
-    @apply block;
-    @apply rounded-sm;
-    @apply border-indigo-700;
-    @apply border;
-    @apply py-2;
-    @apply px-4;
-    @apply text-xl;
+    @apply input-style;
   }
+}
+
+select {
+  @apply input-style;
 }
 
 table {
@@ -145,6 +144,16 @@ dl {
 }
 
 @layer components {
+  .input-style {
+    @apply block;
+    @apply rounded-sm;
+    @apply border-indigo-700;
+    @apply border;
+    @apply py-2;
+    @apply px-4;
+    @apply text-xl;
+  }
+
   .btn-style {
     @apply inline-block;
     @apply rounded-sm;
@@ -201,7 +210,9 @@ dl {
 }
 
 form.w-full {
+  select,
   input[type=text],
+  input[type=datetime-local],
   input[type=email],
   input[type=password] {
     width: 100%;

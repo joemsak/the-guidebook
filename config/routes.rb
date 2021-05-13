@@ -31,8 +31,9 @@ Rails.application.routes.draw do
   end
 
   namespace :coach do
-    resources :client_invitations
     resource :dashboard, only: :show
+    resources :client_invitations
+    resources :coaching_sessions
     get :signup, to: '/public/coach_registrations#new', as: :signup
   end
 
