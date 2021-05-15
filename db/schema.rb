@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_12_224921) do
+ActiveRecord::Schema.define(version: 2021_05_15_151515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_05_12_224921) do
     t.integer "duration_unit", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "video_embed", comment: "Not every session will have embedded videos"
     t.index ["client_profile_id"], name: "index_coaching_sessions_on_client_profile_id"
     t.index ["coach_profile_id", "client_profile_id"], name: "coaching_sessions_coach_client"
     t.index ["coach_profile_id"], name: "index_coaching_sessions_on_coach_profile_id"
