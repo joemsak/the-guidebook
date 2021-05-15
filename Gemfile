@@ -12,6 +12,7 @@ gem 'redis', '~> 4.2.5'
 gem 'email_validator', "~> 2.2.3", require: 'email_validator/strict'
 gem 'bcrypt', '~> 3.1.16'
 gem 'friendly_id', "~> 5.4.2"
+gem 'paper_trail', "~> 12.0.0"
 
 gem 'sass-rails', '~> 6.0.0'
 gem 'webpacker', "~> 5.3.0"
@@ -30,7 +31,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'letter_opener_web', '~> 1.0'
+  gem 'letter_opener_web', '~> 1.4.0'
   gem 'pessimize', "~> 0.4.0"
   gem 'rack-mini-profiler', '~> 2.3.2'
   gem 'listen', '~> 3.5.1'
@@ -45,7 +46,7 @@ group :test do
   gem 'factory_bot_rails', "~> 6.1.0"
   gem 'rspec-rails', "~> 5.0.1"
   gem 'rails-controller-testing', "~> 1.0.5"
-  gem 'database_cleaner-active_record', "~> 2.0.0"
+  gem 'database_cleaner-active_record', "~> 2.0.1"
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
