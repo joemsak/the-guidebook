@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/westonganger/paper_trail-association_tracking.git
+  revision: 739577678cdb2dc019956124a897b436e5e7ad24
+  ref: 73957767
+  specs:
+    paper_trail-association_tracking (2.1.1)
+      paper_trail
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -132,7 +140,6 @@ GEM
     paper_trail (12.0.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
-    paper_trail-association_tracking (2.1.1)
     pessimize (0.4.0)
       bundler
       trollop
@@ -278,7 +285,7 @@ DEPENDENCIES
   letter_opener_web (~> 1.4.0)
   listen (~> 3.5.1)
   paper_trail (~> 12.0.0)
-  paper_trail-association_tracking (~> 2.1.1)
+  paper_trail-association_tracking!
   pessimize (~> 0.4.0)
   pg (~> 1.2.3)
   pry-rails (~> 0.3.9)
