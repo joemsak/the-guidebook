@@ -1,5 +1,7 @@
 <h1><%= t('.title') %></h1>
 
+<%= button_to t('actions.connect_thing', thing: 'Calendly'), "/auth/calendly" %>
+
 <p>
   <%= link_to(
     t(
