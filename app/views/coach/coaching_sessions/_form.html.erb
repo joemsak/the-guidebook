@@ -36,6 +36,15 @@
     ) %>
   </div>
 
+  <div class="field">
+    <%= form.label :video_embed,
+      "#{t("activerecord.attributes.coaching_session.video_embed").titleize} \
+      (#{t("activerecord.attributes.coaching_session.video_embed_or_url")})",
+      class: "normal-case" %>
+
+    <%= form.text_area :video_embed, class: "w-96 h-24" %>
+  </div>
+
   <div class="actions">
     <%= form.submit submit %>
     <%= t('common.or') %>

@@ -14,6 +14,9 @@
       @coaching_session.duration_unit.singularize,
     ) %>
   </dd>
+
+  <dt><%= t('activerecord.attributes.coaching_session.video_embed') %></dt>
+  <dd><%= sanitize(@coaching_session.video_embed, tags: %w[iframe embed]).html_safe %></dd>
 </dl>
 
 <p>

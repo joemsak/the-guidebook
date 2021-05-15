@@ -51,7 +51,7 @@ class Coach::CoachingSessionsController < CoachController
   private
   def coaching_session_params
     params.require(:coaching_session)
-      .permit(:client_profile_id, :starts_at)
+      .permit(:client_profile_id, :starts_at, :video_embed)
       .merge(
         duration: duration,
         duration_unit: duration_unit

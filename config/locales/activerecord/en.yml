@@ -5,6 +5,8 @@ en:
         client_name: client name
         starts_at: starts at
         duration: duration
+        video_embed: video embed
+        video_embed_or_url: Code or URL
 
       user:
         email: email
