@@ -12,7 +12,9 @@ gem 'redis', '~> 4.2.5'
 gem 'email_validator', "~> 2.2.3", require: 'email_validator/strict'
 gem 'bcrypt', '~> 3.1.16'
 gem 'friendly_id', "~> 5.4.2"
+
 gem 'paper_trail', "~> 12.0.0"
+gem 'paper_trail-association_tracking', "~> 2.1.1"
 
 gem 'sass-rails', '~> 6.0.0'
 gem 'webpacker', "~> 5.3.0"
