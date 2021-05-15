@@ -1,7 +1,7 @@
 class CoachProfile < ApplicationRecord
   belongs_to :user
 
-  has_many :client_invitations, as: :sender
+  has_many :client_invitations, as: :sender, dependent: :destroy
 
   has_many :completed_client_invitations,
     -> { completed },
@@ -13,7 +13,7 @@ class CoachProfile < ApplicationRecord
     source: :recipient,
     source_type: "ClientProfile"
 
-  has_many :coaching_sessions
+  has_many :coaching_sessions, dependent: :destroy
 
   delegate :name, :email,
     to: :user,
