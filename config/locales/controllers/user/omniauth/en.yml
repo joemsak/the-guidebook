@@ -1,0 +1,5 @@
+en:
+  user:
+    omniauth:
+      create:
+        success: Successfully connected to %{name}

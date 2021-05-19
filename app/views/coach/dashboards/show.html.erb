@@ -1,6 +1,14 @@
 <h1><%= t('.title') %></h1>
 
 <p>
+  <% if current_user.connected_service?(:calendly) %>
+    <%= t('actions.connected_thing', thing: 'Calendly').capitalize %>
+  <% else %>
+    <%= button_to t('actions.connect_thing', thing: 'Calendly'), "/auth/calendly" %>
+  <% end %>
+</p>
+
+<p>
   <%= link_to(
     t(
       'actions.manage_thing',
