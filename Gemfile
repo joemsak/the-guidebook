@@ -27,7 +27,8 @@ gem 'turbolinks', '~> 5.2.1'
 gem 'jbuilder', '~> 2.11.2'
 gem "tailwindcss-rails", "~> 0.3.3"
 
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12.1'
+gem "aws-sdk-s3", "~> 1.94.1", require: false
 
 gem 'bootsnap', '~> 1.7.5', require: false
 
