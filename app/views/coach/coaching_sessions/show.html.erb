@@ -17,6 +17,9 @@
 
   <dt><%= t('activerecord.attributes.coaching_session.video_embed') %></dt>
   <dd><%= sanitize(@coaching_session.video_embed || "", tags: %w[iframe embed]).html_safe %></dd>
+
+  <dt><%= t('activerecord.attributes.coaching_session.notes') %></dt>
+  <dd><%= @coaching_session.notes %></dd>
 </dl>
 
 <p>

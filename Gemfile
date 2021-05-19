@@ -27,8 +27,7 @@ gem 'turbolinks', '~> 5.2.1'
 gem 'jbuilder', '~> 2.11.2'
 gem "tailwindcss-rails", "~> 0.3.3"
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 gem 'bootsnap', '~> 1.7.5', require: false
 

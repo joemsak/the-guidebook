@@ -1,6 +1,8 @@
 class CoachingSession < ApplicationRecord
   attr_accessor :duration_complex
 
+  has_rich_text :notes
+
   default_scope { order(starts_at: :desc) }
 
   belongs_to :client_profile

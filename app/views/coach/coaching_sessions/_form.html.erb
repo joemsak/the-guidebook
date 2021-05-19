@@ -45,6 +45,11 @@
     <%= form.text_area :video_embed, class: "w-96 h-24" %>
   </div>
 
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.rich_text_area :notes %>
+  </div>
+
   <div class="actions">
     <%= form.submit submit %>
     <%= t('common.or') %>

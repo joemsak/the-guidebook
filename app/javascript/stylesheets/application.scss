@@ -46,7 +46,7 @@ a:not(.btn) {
 }
 
 .btn,
-button:not(.ignore-btn-style),
+button:not(.ignore-btn-style, .trix-button),
 input[type=submit] {
   @apply btn-style;
 }
