@@ -16,7 +16,13 @@ class User < ApplicationRecord
   has_one :coach_profile, dependent: :destroy
   has_one :client_profile, dependent: :destroy
 
+  has_many :authentications, dependent: :destroy
+
   default_scope -> { order(:created_at) }
+
+  def connected_service?(provider)
+    authentications.exists?(provider: provider)
+  end
 
   def should_generate_new_friendly_id?
     name_changed?

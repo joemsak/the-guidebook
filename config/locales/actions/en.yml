@@ -3,6 +3,7 @@ en:
     back: back
     cancel: cancel
     connect_thing: connect to %{thing}
+    connected_thing: connected to %{thing}
     create_thing: create %{thing}
     edit: edit
     delete: delete

@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   match :signout, via: %i[get delete], to: 'user/sessions#destroy', as: :signout
   match :logout, via: %i[get delete], to: 'user/sessions#destroy', as: :logout
 
-  post '/auth/:provider/callback', to: 'user/omniauth#create'
+  match '/auth/:provider/callback', to: 'user/omniauth#create', via: %i[get post]
 
   root to: "public/welcome#show"
 end
