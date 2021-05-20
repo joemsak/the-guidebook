@@ -9,5 +9,5 @@ class ClientProfile < ApplicationRecord
   has_many :coaching_sessions,
     dependent: :destroy
 
-  delegate :name, :email, to: :user, prefix: false
+  delegate :name, :email, :slug, to: :user, prefix: false
 end

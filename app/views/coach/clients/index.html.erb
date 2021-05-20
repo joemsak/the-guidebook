@@ -1,0 +1,27 @@
+<h1><%= t('.title') %></h1>
+
+<% if @clients.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t('activerecord.attributes.client.name') %></th>
+        <th><%= t('activerecord.attributes.client.email') %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <td><%= client.name %></td>
+          <td><%= client.email %></td>
+          <td><%= link_to t('actions.show'), coach_client_path(client.slug) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= link_to t('common.new_thing', thing: t('activerecord.models.client_invitation')),
+  [:new, :coach, :client_invitation],
+  class: "btn" %>

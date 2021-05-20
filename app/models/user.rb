@@ -20,6 +20,11 @@ class User < ApplicationRecord
 
   default_scope -> { order(:created_at) }
 
+  scope :clients_of, ->(coach) {
+    joins(client_profile: :invitations)
+      .where(client_invitations: { sender: coach })
+  }
+
   def connected_service?(provider)
     authentications.exists?(provider: provider)
   end
