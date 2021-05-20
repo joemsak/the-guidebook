@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   AUTH_TOKEN_KEY = :auth_token
   CLIENT_INVITATION_KEY = :client_invitation_id
+  BROWSING_SCOPE_KEY = :browsing_scope
+
+  before_action :remember_browsing_scope
 
   helper_method :current_user, :current_admin, :current_coach, :current_client
 
@@ -59,5 +62,23 @@ class ApplicationController < ActionController::Base
     if current_user
       redirect_to user_dashboard_path, notice: t('notices.already_signed_in')
     end
+  end
+
+  def browsing_scope
+    session[BROWSING_SCOPE_KEY] && session[BROWSING_SCOPE_KEY].to_sym
+  end
+
+  def remember_browsing_scope
+    session[BROWSING_SCOPE_KEY] = browsing_scope_value
+  end
+
+  def browsing_scope_value
+    if controller_name_parts.length > 1
+      controller_name_parts[0]
+    end
+  end
+
+  def controller_name_parts
+    params[:controller].split('/')
   end
 end
