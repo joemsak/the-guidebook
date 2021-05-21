@@ -3,6 +3,10 @@ en:
     admin: admin
     dashboard: dashboard
     error: error
+    hour: hour
+    hours: hours
     on_behalf_of: on behalf of
     or: or
     new_thing: new %{thing}
+    minutes: minutes
+    with: with

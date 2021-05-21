@@ -1,6 +1,10 @@
 class CoachProfile < ApplicationRecord
   belongs_to :user
 
+  def self.friendly
+    User.friendly
+  end
+
   has_many :client_invitations, as: :sender, dependent: :destroy
 
   has_many :completed_client_invitations,
@@ -15,7 +19,7 @@ class CoachProfile < ApplicationRecord
 
   has_many :coaching_sessions, dependent: :destroy
 
-  delegate :name, :email,
+  delegate :name, :email, :slug,
     to: :user,
     prefix: false,
     allow_nil: false

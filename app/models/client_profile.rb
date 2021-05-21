@@ -6,6 +6,11 @@ class ClientProfile < ApplicationRecord
     class_name: "ClientInvitation",
     dependent: :destroy
 
+  has_many :coaches,
+    through: :invitations,
+    source: :recipient,
+    source_type: "CoachProfile"
+
   has_many :coaching_sessions,
     dependent: :destroy
 

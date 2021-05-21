@@ -136,6 +136,7 @@ td {
 dl {
   dt {
     @apply font-bold;
+    @apply capitalize;
   }
 
   dd {

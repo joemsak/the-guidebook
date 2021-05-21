@@ -18,6 +18,6 @@ class CoachingSession < ApplicationRecord
     minutes
   ], _default: :hours
 
-  delegate :name, :email, to: :client, prefix: true
-  delegate :name, :email, to: :coach, prefix: true
+  delegate :name, :email, :slug, to: :client, prefix: true
+  delegate :name, :email, :slug, to: :coach, prefix: true
 end
