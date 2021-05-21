@@ -1,5 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
-  DEFAULT_FROM = 'support@relationalguidebook.com'
+  SUPPORT_EMAIL = "support@relationalguidebook.com"
+  DEFAULT_FROM = "#{I18n.t('site.title')} <#{SUPPORT_EMAIL}>"
 
   default from: DEFAULT_FROM
 

@@ -7,7 +7,7 @@ RSpec.describe ClientInvitationMailer, type: :mailer do
 
     it "renders the headers" do
       expect(mail.to).to eq([invitation.email])
-      expect(mail.from).to eq([ApplicationMailer::DEFAULT_FROM])
+      expect(mail.from).to eq([ApplicationMailer::SUPPORT_EMAIL])
       expect(mail.reply_to).to eq([invitation.sender_email])
     end
 
