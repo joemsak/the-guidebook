@@ -5,7 +5,7 @@ class User::DashboardsController < UserController
 
   private
   def redirect_to_profile
-    if browsing_scope
+    if valid_browsing_scope
       redirect_to [browsing_scope, :dashboard]
     elsif current_admin
       redirect_to [:admin, :dashboard]

@@ -25,6 +25,10 @@ class User < ApplicationRecord
       .where(client_invitations: { sender: coach })
   }
 
+  def has_profile?(type)
+    send("#{type}_profile").present?
+  end
+
   def connected_service?(provider)
     authentications.exists?(provider: provider)
   end

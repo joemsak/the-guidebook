@@ -64,6 +64,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def valid_browsing_scope
+    browsing_scope && current_user.has_profile?(browsing_scope)
+  end
+
   def browsing_scope
     session[BROWSING_SCOPE_KEY] && session[BROWSING_SCOPE_KEY].to_sym
   end
