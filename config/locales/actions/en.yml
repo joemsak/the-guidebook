@@ -13,5 +13,6 @@ en:
     show: show
     signin: sign in
     signup: signup
+    sign_up: sign up
     switch_to: switch to %{thing}
     update_thing: update %{thing}

@@ -1,2 +1,13 @@
-<h1>Public::Welcome#show</h1>
-<p>Find me in app/views/public/welcome/show.html.erb</p>
+<h1>Welcome to <%= t('site.title') %>!</h1>
+
+<p class="font-bold">Only coaches can <%= link_to t('actions.sign_up'), coach_signup_path %></p>
+
+<p>
+  Clients must have an invitation from a coach via email.
+  If you have a login, you can <%= link_to t('actions.signin'), signin_path %>.
+</p>
+
+<p>
+  <strong>This site is still in beta</strong>, and I thank you for your patience.
+  Your <%= mail_to "feedback@relationalguidebook.com", "feedback" %> is welcome.
+</p>
