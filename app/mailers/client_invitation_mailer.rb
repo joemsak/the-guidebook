@@ -5,7 +5,7 @@ class ClientInvitationMailer < ApplicationMailer
     begin
       @url = accept_public_client_invitation_url(invitation_id) # avoid friendly ID
       @sender = @client_invitation.sender
-      mail to: @client_invitation.email, from: @sender.email
+      mail to: @client_invitation.email, reply_to: @sender.email
       @client_invitation.sent!
     rescue => e
       @client_invitation.failed_with_exception!(e)

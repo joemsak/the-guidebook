@@ -1,4 +1,7 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'support@relationalguidebook.com'
+  DEFAULT_FROM = 'support@relationalguidebook.com'
+
+  default from: DEFAULT_FROM
+
   layout 'mailer'
 end
