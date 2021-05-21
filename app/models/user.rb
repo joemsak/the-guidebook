@@ -25,6 +25,10 @@ class User < ApplicationRecord
       .where(client_invitations: { sender: coach })
   }
 
+  def create_profile(type)
+    send("create_#{type}_profile") unless has_profile?(type)
+  end
+
   def has_profile?(type)
     send("#{type}_profile").present?
   end
