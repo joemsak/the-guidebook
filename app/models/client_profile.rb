@@ -8,7 +8,7 @@ class ClientProfile < ApplicationRecord
 
   has_many :coaches,
     through: :invitations,
-    source: :recipient,
+    source: :sender,
     source_type: "CoachProfile"
 
   has_many :coaching_sessions,

@@ -5,6 +5,8 @@ class CoachingSession < ApplicationRecord
 
   default_scope { order(starts_at: :desc) }
 
+  scope :completed, -> { where("starts_at <= ?", Time.current) }
+
   belongs_to :client_profile
   belongs_to :coach_profile
 

@@ -1,0 +1,12 @@
+<p>
+  <%= l coaching_session.starts_at %> |
+  <%= coaching_session.duration %>
+  <%= t("common.#{coaching_session.duration_unit}") %>
+  <%= t('common.with') %>
+  <%= link_to coaching_session.coach_name, client_coach_path(coaching_session.coach_slug) %>
+</p>
+
+<dl class="border border-black p-4 rounded-md">
+  <dt><%= t('activerecord.attributes.coaching_session.notes') %>:</dt>
+  <dd><%= coaching_session.notes %></dd>
+</dl>

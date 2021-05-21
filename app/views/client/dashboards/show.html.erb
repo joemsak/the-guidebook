@@ -1,2 +1,9 @@
-<h1>Client::Dashboards#show</h1>
-<p>Find me in app/views/client/dashboards/show.html.erb</p>
+<h1><%= t('.title') %></h1>
+
+<h2><%= t('.latest_coaching_session') %></h2>
+
+<% if @latest_coaching_session %>
+  <%= render @latest_coaching_session %>
+<% else %>
+  <p><%= t('.no_latest_coaching_session') %></p>
+<% end %>

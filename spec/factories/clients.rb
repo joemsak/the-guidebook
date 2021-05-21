@@ -6,6 +6,10 @@ FactoryBot.define do
       coach { false }
     end
 
+    trait :with_coach do
+      coach { create(:coach).coach_profile }
+    end
+
     after(:create) do |user, evaluator|
       if evaluator.coach
         create(

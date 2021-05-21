@@ -1,0 +1,7 @@
+en:
+  client:
+    dashboards:
+      show:
+        latest_coaching_session: Latest coaching session
+        no_latest_coaching_session: When you start having sessions, the most recent one will be shown here, for you to review notes and action items
+        title: Client Dashboard

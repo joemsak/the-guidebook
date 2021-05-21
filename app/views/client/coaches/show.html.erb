@@ -1,0 +1,11 @@
+<h1><%= t('.title') %></h1>
+
+<dl>
+  <dt><%= t('activerecord.models.user.name') %>:</dt>
+  <dd><%= @coach.name %></dd>
+
+  <dt><%= t('activerecord.models.user.email') %>:</dt>
+  <dd><%= @coach.email %></dd>
+</dl>
+
+<%= link_to t('actions.back').capitalize, :back %>
