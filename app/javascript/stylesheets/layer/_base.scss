@@ -137,42 +137,4 @@
       @apply mb-4;
     }
   }
-
-  #notice,
-  #alert {
-    @apply rounded-sm;
-    @apply text-white;
-    @apply py-4;
-    @apply px-6;
-    @apply mb-4;
-    @apply font-bold;
-    @apply shadow-md;
-  }
-
-  #notice {
-    @apply bg-green-400;
-  }
-
-  #alert {
-    @apply bg-red-400;
-  }
-
-  #error_explanation {
-    @apply mb-4;
-    @apply bg-red-400;
-    @apply text-white;
-    @apply shadow-md;
-    @apply p-4;
-    @apply rounded-sm;
-  }
-
-  form.w-full {
-    select,
-    input[type=text],
-    input[type=datetime-local],
-    input[type=email],
-    input[type=password] {
-      width: 100%;
-    }
-  }
 }
