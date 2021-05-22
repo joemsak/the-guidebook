@@ -20,6 +20,10 @@ class User < ApplicationRecord
 
   default_scope -> { order(:created_at) }
 
+  scope :admin, -> { joins(:admin_profile) }
+  scope :coach, -> { joins(:coach_profile) }
+  scope :client, -> { joins(:client_profile) }
+
   scope :clients_of, ->(coach) {
     joins(client_profile: :invitations)
       .where(client_invitations: { sender: coach })
