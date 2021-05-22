@@ -30,7 +30,11 @@ class User < ApplicationRecord
   end
 
   def has_profile?(type)
-    send("#{type}_profile").present?
+    begin
+      send("#{type}_profile").present?
+    rescue NoMethodError
+      false
+    end
   end
 
   def connected_service?(provider)
