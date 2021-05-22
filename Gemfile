@@ -18,6 +18,7 @@ gem 'paper_trail-association_tracking',
   github: 'westonganger/paper_trail-association_tracking',
   ref: '73957767'
 
+gem 'calendly', "~> 0.5.2"
 gem 'omniauth-calendly', "~> 1.0.3"
 gem "omniauth-rails_csrf_protection", "~> 1.0.0"
 
