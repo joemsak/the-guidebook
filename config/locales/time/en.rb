@@ -2,7 +2,7 @@
   en: {
     time: {
       formats: {
-        default: ->(time) { "%A, %B #{time.day.ordinalize} at %-I:%M%p" }
+        default: ->(time, _ = nil) { "%A, %B #{time.day.ordinalize} at %-I:%M%p" }
       }
     }
   }
