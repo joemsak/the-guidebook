@@ -1,7 +1,7 @@
 <p>
-  <%= l coaching_session.starts_at %> |
+  <%= local_time(coaching_session.start_time, :default) %> |
   <%= coaching_session.duration %>
-  <%= t("common.#{coaching_session.duration_unit}") %>
+  <%= t("common.minutes") %>
   <%= t('common.with') %>
   <%= link_to coaching_session.coach_name, client_coach_path(coaching_session.coach_slug) %>
 </p>

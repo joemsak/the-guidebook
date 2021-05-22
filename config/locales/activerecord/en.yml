@@ -4,8 +4,10 @@ en:
       coaching_session:
         client_name: client name
         duration: duration
+        end_time: end time
+        join_url: Join URL
         notes: notes
-        starts_at: starts at
+        start_time: start time
         video_embed: video embed
         video_embed_or_url: Code or URL
 

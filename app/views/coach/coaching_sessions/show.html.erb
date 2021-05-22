@@ -4,16 +4,14 @@
   <dt><%= t('activerecord.attributes.coaching_session.client_name') %></dt>
   <dd><%= @coaching_session.client_name %></dd>
 
-  <dt><%= t('activerecord.attributes.coaching_session.starts_at') %></dt>
-  <dd><%= @coaching_session.starts_at %></dd>
+  <dt><%= t('activerecord.attributes.coaching_session.start_time') %></dt>
+  <dd><%= local_time(@coaching_session.start_time, :default) %></dd>
+
+  <dt><%= t('activerecord.attributes.coaching_session.join_url') %></dt>
+  <dd><%= link_to @coaching_session.join_url, @coaching_session.join_url %></dd>
 
   <dt><%= t('activerecord.attributes.coaching_session.duration') %></dt>
-  <dd>
-    <%= pluralize(
-      @coaching_session.duration,
-      @coaching_session.duration_unit.singularize,
-    ) %>
-  </dd>
+  <dd><%= @coaching_session.duration %> <%= t("common.minutes") %></dd>
 
   <dt><%= t('activerecord.attributes.coaching_session.video_embed') %></dt>
   <dd><%= sanitize(@coaching_session.video_embed || "", tags: %w[iframe embed]).html_safe %></dd>
@@ -22,7 +20,4 @@
   <dd><%= @coaching_session.notes %></dd>
 </dl>
 
-<p>
-  <%= link_to t("actions.edit").capitalize, [:edit, :coach, @coaching_session] %> |
-  <%= link_to t("actions.back").capitalize, [:coach, :coaching_sessions] %>
-</p>
+<p><%= link_to t("actions.back").capitalize, [:coach, :coaching_sessions] %></p>

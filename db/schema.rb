@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_211042) do
+ActiveRecord::Schema.define(version: 2021_05_22_204402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,16 +112,25 @@ ActiveRecord::Schema.define(version: 2021_05_19_211042) do
   create_table "coaching_sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "client_profile_id", null: false
     t.uuid "coach_profile_id", null: false
-    t.datetime "starts_at", null: false
-    t.integer "duration", default: 1, null: false
-    t.integer "duration_unit", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "video_embed", comment: "Not every session will have embedded videos"
+    t.string "external_id", null: false
+    t.string "external_url", null: false
+    t.string "name", null: false
+    t.string "external_status", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
+    t.datetime "external_created_at", null: false
+    t.datetime "external_updated_at", null: false
+    t.jsonb "event_type", null: false
+    t.jsonb "location", null: false
+    t.integer "invitees_counter_total", null: false
+    t.integer "invitees_counter_active", null: false
+    t.integer "invitees_counter_limit", null: false
     t.index ["client_profile_id"], name: "index_coaching_sessions_on_client_profile_id"
     t.index ["coach_profile_id", "client_profile_id"], name: "coaching_sessions_coach_client"
     t.index ["coach_profile_id"], name: "index_coaching_sessions_on_coach_profile_id"
-    t.index ["starts_at"], name: "index_coaching_sessions_on_starts_at"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
