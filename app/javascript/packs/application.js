@@ -5,12 +5,16 @@
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
+import LocalTime from "local-time"
+
 import * as ActiveStorage from "@rails/activestorage"
+
 import "channels"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+LocalTime.start()
 
 import "stylesheets/application"
 
