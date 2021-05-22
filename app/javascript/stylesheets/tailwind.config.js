@@ -6,7 +6,7 @@ module.exports = {
       "./app/javascript/**/*.js",
       "./app/javascript/**/*.vue",
     ],
-    safelist: ['btn'],
+    layers: ['components', 'utilities'],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
