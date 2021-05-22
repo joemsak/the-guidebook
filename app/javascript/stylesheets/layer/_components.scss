@@ -1,0 +1,47 @@
+@layer components {
+  .input-style {
+    @apply block;
+    @apply rounded-sm;
+    @apply border-indigo-700;
+    @apply border;
+    @apply py-2;
+    @apply px-4;
+    @apply text-xl;
+  }
+
+  .btn-style {
+    @apply appearance-none;
+
+    @apply inline-block;
+    @apply rounded-sm;
+    @apply shadow-sm;
+    @apply bg-blue-400;
+
+    @apply py-1;
+    @apply px-4;
+
+    @apply text-sm;
+    @apply text-white;
+    @apply font-bold;
+    @apply capitalize;
+
+    @apply cursor-pointer;
+
+    @apply hover:bg-blue-900;
+
+    @apply active:translate-x-1;
+    @apply active:translate-y-1;
+
+    @apply transform;
+    @apply transition-colors;
+    @apply duration-300;
+  }
+
+  .link-style {
+    @apply text-blue-400;
+    @apply hover:text-blue-900;
+    @apply transition-colors;
+    @apply duration-300;
+    @apply cursor-pointer;
+  }
+}

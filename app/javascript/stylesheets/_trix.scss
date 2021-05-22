@@ -1,0 +1,35 @@
+/* purgecss start ignore */
+
+.trix-content {
+  h1,
+  h2,
+  h3 {
+    @apply font-bold;
+  }
+
+  ul,
+  ol {
+    @apply ml-4;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  action-text-attachment {
+    .attachment {
+      @apply py-2;
+      @apply px-4;
+
+      a {
+        @apply link-style;
+      }
+    }
+  }
+}
+
+/* purgecss end ignore */

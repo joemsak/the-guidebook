@@ -1,0 +1,178 @@
+@layer base {
+  nav {
+    a {
+      @apply font-bold;
+    }
+
+    a,
+    span {
+      @apply block;
+      @apply py-2;
+      @apply px-4;
+    }
+  }
+
+  main {
+    form,
+    .field,
+    table,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+      @apply mb-4;
+    }
+
+    h1 {
+      @apply text-2xl;
+    }
+
+    h2 {
+      @apply text-xl;
+    }
+  }
+
+  a:not(.btn) {
+    @apply link-style;
+  }
+
+  .btn,
+  button:not(.ignore-btn-style, .trix-button),
+  input[type=submit] {
+    @apply btn-style;
+  }
+
+  label {
+    @apply block;
+    @apply w-auto;
+    @apply cursor-pointer;
+    @apply mb-2;
+    @apply capitalize;
+  }
+
+  input {
+    &[type=text],
+    &[type=datetime-local],
+    &[type=email],
+    &[type=password] {
+      @apply input-style;
+    }
+  }
+
+  select,
+  textarea {
+    @apply input-style;
+  }
+
+  table {
+    @apply w-full;
+  }
+
+  tbody {
+    tr {
+      td {
+        @apply transition;
+        @apply duration-300;
+      }
+
+      &:first-child {
+        td {
+          &:first-child {
+            @apply rounded-tl-md;
+          }
+
+          &:last-child {
+            @apply rounded-tr-md;
+          }
+        }
+      }
+
+      &:last-child {
+        td {
+          &:first-child {
+            @apply rounded-bl-md;
+          }
+
+          &:last-child {
+            @apply rounded-br-md;
+          }
+        }
+      }
+
+      &:nth-child(odd) {
+        td {
+          @apply bg-indigo-50;
+        }
+      }
+
+      &:hover {
+        td {
+          @apply bg-indigo-100;
+        }
+      }
+    }
+  }
+
+  th {
+    @apply capitalize;
+  }
+
+  th,
+  td {
+    @apply py-2;
+    @apply px-4;
+    @apply text-left;
+  }
+
+  dl {
+    dt {
+      @apply font-bold;
+      @apply capitalize;
+    }
+
+    dd {
+      @apply block;
+      @apply mb-4;
+    }
+  }
+
+  #notice,
+  #alert {
+    @apply rounded-sm;
+    @apply text-white;
+    @apply py-4;
+    @apply px-6;
+    @apply mb-4;
+    @apply font-bold;
+    @apply shadow-md;
+  }
+
+  #notice {
+    @apply bg-green-400;
+  }
+
+  #alert {
+    @apply bg-red-400;
+  }
+
+  #error_explanation {
+    @apply mb-4;
+    @apply bg-red-400;
+    @apply text-white;
+    @apply shadow-md;
+    @apply p-4;
+    @apply rounded-sm;
+  }
+
+  form.w-full {
+    select,
+    input[type=text],
+    input[type=datetime-local],
+    input[type=email],
+    input[type=password] {
+      width: 100%;
+    }
+  }
+}
