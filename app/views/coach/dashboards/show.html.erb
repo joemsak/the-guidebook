@@ -22,16 +22,6 @@
   <%= link_to(
     t(
       'actions.manage_thing',
-      thing: t('activerecord.models.client_invitation').pluralize
-    ).capitalize,
-    [:coach, :client_invitations]
-  ) %>
-</p>
-
-<p>
-  <%= link_to(
-    t(
-      'actions.manage_thing',
       thing: t('activerecord.models.coaching_session').pluralize
     ).capitalize,
     [:coach, :coaching_sessions]
