@@ -1,5 +1,7 @@
 class Public::SessionsController < PublicController
   def create
+    verify_recaptcha!('signin')
+
     if resource = authenticate_resource
       sign_in(resource)
       redirect_to [resource, :dashboard], notice: t('.success')

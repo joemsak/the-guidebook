@@ -5,6 +5,8 @@ class Public::ClientRegistrationsController < PublicController
   end
 
   def create
+    verify_recaptcha!('client_signup')
+
     ActiveRecord::Base.transaction do
       @client = User.new(client_params)
 

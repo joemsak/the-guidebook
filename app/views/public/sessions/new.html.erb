@@ -27,5 +27,8 @@
       <%= t('common.or') %>
       <%= link_to t('actions.cancel'), root_path %>
     </div>
+
+    <%= recaptcha_execute('signin') %>
+    <%= content_for(:recaptcha_js, include_recaptcha_js) %>
   <% end %>
 </div>

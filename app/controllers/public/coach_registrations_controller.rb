@@ -4,6 +4,8 @@ class Public::CoachRegistrationsController < PublicController
   end
 
   def create
+    verify_recaptcha!('coach_signup')
+
     ActiveRecord::Base.transaction do
       @coach = User.new(coach_params)
 

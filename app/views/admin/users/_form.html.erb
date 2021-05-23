@@ -4,6 +4,7 @@
   cancel_path ||= admin_users_path
   css_classes ||= ''
   model_name ||= :user
+  recaptcha ||= false
 %>
 
 <%= form_with(model: resource, url: url, class: css_classes) do |form| %>
@@ -36,4 +37,7 @@
     <%= t('common.or') %>
     <%= link_to t('actions.cancel'), cancel_path %>
   </div>
+
+  <%= recaptcha_execute(recaptcha) if recaptcha %>
+  <%= content_for(:recaptcha_js, include_recaptcha_js) if recaptcha %>
 <% end %>

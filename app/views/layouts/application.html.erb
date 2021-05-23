@@ -20,6 +20,8 @@
 
     <%= stylesheet_pack_tag "application",
       "data-turbo-track": "reload" %>
+
+    <%= yield :recaptcha_js %>
   </head>
 
   <body class="bg-gray-50 text-gray-700 h-full">

@@ -1,4 +1,5 @@
 en:
   alerts:
+    recaptcha_error: reCAPTCHA Authorization Failed. Please try again later.
     unauthenticated: Please sign in first
     unauthorized: You are not allowed to go there
