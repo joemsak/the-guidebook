@@ -14,26 +14,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :starts_at %>
-    <%= form.datetime_field :starts_at %>
-  </div>
-
-  <div class="field">
-    <%= form.label :duration_complex,
-      t("activerecord.attributes.coaching_session.duration") %>
-
-    <%= form.select :duration_complex, options_for_select([
-        "1 hour",
-        "2 hours",
-        "3 hours",
-        "15 minutes",
-        "30 minutes",
-        "45 minutes",
-        "75 minutes",
-        "90 minutes",
-      ],
-      coaching_session.duration_complex
-    ) %>
+    <%= form.label :start_time %>
+    <%= form.datetime_field :start_time %>
   </div>
 
   <div class="field">
