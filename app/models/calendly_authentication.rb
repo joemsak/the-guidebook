@@ -1,10 +1,14 @@
 class CalendlyAuthentication < Authentication
-  def client
+  def api_client
     @client ||= GuidebookCalendlyClient.new(token, refresh_token, token_expires_at)
   end
 
+  def coach
+    user.coach_profile
+  end
+
   def calendly_user
-    @calendly_user ||= client.me
+    @calendly_user ||= api_client.me
   end
 
   def scheduled_events
@@ -16,12 +20,24 @@ class CalendlyAuthentication < Authentication
     check_token!
 
     scheduled_events.each do |event|
-      invitee_email = event.invitees.first.email # assume 1 on 1
-      client = User.client.find_by(email: invitee_email)
+      next unless event.invitees_counter_limit == 1 # assume 1 on 1
 
-      next if !client || user.coach_profile.coaching_sessions.exists?(external_id: event.uuid)
+      invitee = event.invitees.first
 
-      user.coach_profile.coaching_sessions.create!({
+      client = User.client.find_by(email: invitee.email)
+
+      unless client
+        client = coach.pending_clients.find_or_initialize_by(email: invitee.email)
+        client.build_client_profile unless client.client_profile
+        client.update(name: invitee.name)
+      end
+
+      is_imported = ImportedEvent.exists?(external_id: event.uuid)
+      is_converted = user.coach_profile.coaching_sessions.exists?(external_id: event.uuid)
+
+      next if is_imported || is_converted
+
+      user.coach_profile.imported_events.create!({
         client_profile: client.client_profile,
         external_id: event.uuid,
         external_url: event.uri,
@@ -51,38 +67,39 @@ class CalendlyAuthentication < Authentication
           external_owner_id: event.event_type.owner_uuid,
           external_owner_uri: event.event_type.owner_uri,
           owner_name: event.event_type.owner_name,
-          owner_type: event.event_type.owner_type,
+          owner_type: event.event_type.owner_type
         },
         location: {
           type: event.location.type,
           location: event.location.location,
           external_status: event.location.status,
           external_join_url: event.location.join_url,
-          external_data: event.location.data,
+          external_data: event.location.data
         },
         invitees_counter_total: event.invitees_counter_total,
         invitees_counter_active: event.invitees_counter_active,
-        invitees_counter_limit: event.invitees_counter_limit,
+        invitees_counter_limit: event.invitees_counter_limit
       })
     end
   end
 
   private
+
   def check_token!
-    if client.access_token.expired?
-      client.refresh!
+    if api_client.access_token.expired?
+      api_client.refresh!
     end
   end
 
   def token
-    credentials['token']
+    credentials["token"]
   end
 
   def refresh_token
-    credentials['refresh_token']
+    credentials["refresh_token"]
   end
 
   def token_expires_at
-    credentials['expires_at']
+    credentials["expires_at"]
   end
 end

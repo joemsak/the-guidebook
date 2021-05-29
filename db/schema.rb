@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_204402) do
-
+ActiveRecord::Schema.define(version: 2021_05_29_221404) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -96,9 +95,11 @@ ActiveRecord::Schema.define(version: 2021_05_22_204402) do
   end
 
   create_table "client_profiles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "user_id", null: false
+    t.uuid "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.uuid "pending_client_id", comment: "PendingClient is only required if the user is blank, vice-versa"
+    t.index ["pending_client_id"], name: "index_client_profiles_on_pending_client_id"
     t.index ["user_id"], name: "index_client_profiles_on_user_id", unique: true
   end
 
@@ -144,6 +145,43 @@ ActiveRecord::Schema.define(version: 2021_05_22_204402) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "imported_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "coaching_session_id", comment: "A coaching session might not be created for the imported event"
+    t.uuid "client_profile_id", null: false
+    t.uuid "coach_profile_id", null: false
+    t.string "external_id", null: false
+    t.string "external_url", null: false
+    t.string "name", null: false
+    t.string "external_status", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
+    t.datetime "external_created_at", null: false
+    t.datetime "external_updated_at", null: false
+    t.jsonb "event_type", null: false
+    t.jsonb "location", null: false
+    t.integer "invitees_counter_total", null: false
+    t.integer "invitees_counter_active", null: false
+    t.integer "invitees_counter_limit", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_profile_id"], name: "index_imported_events_on_client_profile_id"
+    t.index ["coach_profile_id"], name: "index_imported_events_on_coach_profile_id"
+    t.index ["coaching_session_id"], name: "index_imported_events_on_coaching_session_id"
+  end
+
+  create_table "pending_clients", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "email", null: false
+    t.string "name", null: false
+    t.integer "status", default: 0, null: false
+    t.uuid "client_invitation_id", comment: "Invitations not required"
+    t.uuid "coach_profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_invitation_id"], name: "index_pending_clients_on_client_invitation_id"
+    t.index ["coach_profile_id"], name: "index_pending_clients_on_coach_profile_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
@@ -184,8 +222,14 @@ ActiveRecord::Schema.define(version: 2021_05_22_204402) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "admin_profiles", "users"
   add_foreign_key "authentications", "users"
+  add_foreign_key "client_profiles", "pending_clients"
   add_foreign_key "client_profiles", "users"
   add_foreign_key "coach_profiles", "users"
   add_foreign_key "coaching_sessions", "client_profiles"
   add_foreign_key "coaching_sessions", "coach_profiles"
+  add_foreign_key "imported_events", "client_profiles"
+  add_foreign_key "imported_events", "coach_profiles"
+  add_foreign_key "imported_events", "coaching_sessions"
+  add_foreign_key "pending_clients", "client_invitations"
+  add_foreign_key "pending_clients", "coach_profiles"
 end

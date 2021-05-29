@@ -17,6 +17,8 @@ class CoachProfile < ApplicationRecord
     source: :recipient,
     source_type: "ClientProfile"
 
+  has_many :pending_clients, dependent: :destroy
+  has_many :imported_events, dependent: :destroy
   has_many :coaching_sessions, dependent: :destroy
 
   delegate :name, :email, :slug,
